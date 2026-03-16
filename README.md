@@ -66,6 +66,8 @@ I told 牛仔: **"it doesn't feel like a real app icon."**
 
 Somewhere in the middle of all this, I asked Claude Code to take a shot.
 
+See how 牛仔 later expanded on this concept: [`stage3b-pid-kill-variants-x20-20260304.html`](stage3b-pid-kill-variants-x20-20260304.html) and [`stage3c-glitch-pid-x20-20260304.html`](stage3c-glitch-pid-x20-20260304.html)
+
 This is what it wrote:
 
 ```svg
@@ -179,7 +181,7 @@ Logo done. I wanted a brand animation GIF for social media.
 
 I gave 牛仔 the creative direction: crosshair hunting real processes that developers hate — Chrome Helper, CoreSimulatorService, photoanalysisd — locking on one by one, killing them, showing memory freed. Logo reveal at the end.
 
-牛仔 wrote a complete HTML animation (`pidkill-brand-animation.html`). Crosshair movement, process names popping in, 💥 explosion effects, memory counter ticking up, logo entrance at the end. I recorded it with Kap and converted to GIF.
+牛仔 wrote a complete HTML animation ([`bonus-brand-animation-20260307.html`](bonus-brand-animation-20260307.html)). Crosshair movement, process names popping in, 💥 explosion effects, memory counter ticking up, logo entrance at the end. I recorded it with Kap and converted to GIF.
 
 We iterated on the recording frame, external replay button placement, and final logo reveal treatment.
 
@@ -225,7 +227,7 @@ Every HTML file below can be opened directly in a browser to see the designs.
 | `stage4a-final-fusion-ab-20260307.html` | Final | Mar 7 | A+B Fusion · V1 |
 | `stage4b-v2-bold-20260307.html` | Final | Mar 7 | V2 Bold |
 | `stage4c-v3-bold-final-20260307.html` | Final | Mar 7 | V3 Bold · **SHIPPED** |
-| `bonus-kill-button-prototype-20260307.html` | Bonus | Mar 7 | Kill button UI prototype |
+| `bonus-brand-animation-20260307.html` | Bonus | Mar 7 | Brand animation (crosshair hunting processes) |
 
 ### Design parameters (final V3 Bold, 512px base)
 
