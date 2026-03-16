@@ -66,7 +66,7 @@ I told 牛仔: **"it doesn't feel like a real app icon."**
 
 Somewhere in the middle of all this, I asked Claude Code to take a shot.
 
-See how 牛仔 later expanded on this concept: [`stage3b-pid-kill-variants-x20-20260304.html`](stage3b-pid-kill-variants-x20-20260304.html) and [`stage3c-glitch-pid-x20-20260304.html`](stage3c-glitch-pid-x20-20260304.html)
+See how 牛仔 later expanded on this concept: [`stage4-glitch-pid-x20-20260304.html`](stage4-glitch-pid-x20-20260304.html), [`stage4a-pid-refined-20260304.html`](stage4a-pid-refined-20260304.html), and [`stage4b-pid-final-20260304.html`](stage4b-pid-final-20260304.html)
 
 This is what it wrote:
 
@@ -151,7 +151,7 @@ I told 牛仔: *"use the red circle from B · MINIMAL TACTICAL's thick ring styl
 
 ### The final icon (V1 → V2 → V3)
 
-**V1 · Final Fusion** ([`stage4a-final-fusion-ab-20260307.html`](stage4a-final-fusion-ab-20260307.html)):
+**V1 · Final Fusion** ([`stage7a-final-fusion-ab-20260307.html`](stage7a-final-fusion-ab-20260307.html)):
 - Deep background + subtle red grid texture (from A)
 - Double scope ring — main ring + inner ring (from A/B)
 - 4-direction notch tick marks (from B)
@@ -161,10 +161,10 @@ I told 牛仔: *"use the red circle from B · MINIMAL TACTICAL's thick ring styl
 
 (Interesting note: 牛仔 chose JetBrains Mono over SF Mono for the final version. Claude Code taught it that *concept beats decoration*, but 牛仔 also knew that at large icon sizes, JetBrains Mono has better weight and letter-spacing control. It learned the lesson, but didn't blindly copy the answer.)
 
-**V2 Bold** ([`stage4b-v2-bold-20260307.html`](stage4b-v2-bold-20260307.html)):
+**V2 Bold** ([`stage7b-v2-bold-20260307.html`](stage7b-v2-bold-20260307.html)):
 Line weights increased, contrast improved.
 
-**V3 Bold** ([`stage4c-v3-bold-final-20260307.html`](stage4c-v3-bold-final-20260307.html)):
+**V3 Bold** ([`stage7c-v3-bold-final-20260307.html`](stage7c-v3-bold-final-20260307.html)):
 Final refinement. Each size (512/256/128/64/32px) individually tuned. Dock simulation verified.
 
 **V3 Bold shipped.** This is what's in the App Store today.
@@ -181,7 +181,7 @@ Logo done. I wanted a brand animation GIF for social media.
 
 I gave 牛仔 the creative direction: crosshair hunting real processes that developers hate — Chrome Helper, CoreSimulatorService, photoanalysisd — locking on one by one, killing them, showing memory freed. Logo reveal at the end.
 
-牛仔 wrote a complete HTML animation ([`bonus-brand-animation-20260307.html`](bonus-brand-animation-20260307.html)). Crosshair movement, process names popping in, 💥 explosion effects, memory counter ticking up, logo entrance at the end. I recorded it with Kap and converted to GIF.
+牛仔 wrote a complete HTML animation ([`stage5-brand-animation-20260307.html`](stage5-brand-animation-20260307.html)). Crosshair movement, process names popping in, 💥 explosion effects, memory counter ticking up, logo entrance at the end. I recorded it with Kap and converted to GIF.
 
 We iterated on the recording frame, external replay button placement, and final logo reveal treatment.
 
@@ -215,19 +215,22 @@ Every HTML file below can be opened directly in a browser to see the designs.
 
 | File | Stage | Date | Content |
 |------|-------|------|---------|
-| `stage1-ui-prototype-20260304.html` | UI prototype | Mar 4 | App window UI prototype |
-| `stage1-ui-dual-mode-20260304.html` | UI prototype | Mar 4 | Dual-mode (Targets/Browse) UI prototype |
-| `stage2a-basic-concepts-x20-20260304.html` | Exploration | Mar 4 | Basic icon concepts × 20 |
-| `stage2b-shield-variants-x20-20260304.html` | Exploration | Mar 4 | Shield direction × 20 |
-| `stage2c-unique-concepts-x20-20260304.html` | Exploration | Mar 4 | Wild/unique concepts × 20 |
-| `stage2d-owl-variants-x20-20260304.html` | Exploration | Mar 4 | Night Owl variants × 20 (by Claude Code) |
-| `stage3a-convergence-5directions-x20-20260304.html` | Convergence | Mar 4 | 5 refined directions × 20 |
-| `stage3b-pid-kill-variants-x20-20260304.html` | Convergence | Mar 4 | PID × Kill variants × 20 |
-| `stage3c-glitch-pid-x20-20260304.html` | Convergence | Mar 4 | Glitch PID refinement × 20 |
-| `stage4a-final-fusion-ab-20260307.html` | Final | Mar 7 | A+B Fusion · V1 |
-| `stage4b-v2-bold-20260307.html` | Final | Mar 7 | V2 Bold |
-| `stage4c-v3-bold-final-20260307.html` | Final | Mar 7 | V3 Bold · **SHIPPED** |
-| `bonus-brand-animation-20260307.html` | Bonus | Mar 7 | Brand animation (crosshair hunting processes) |
+| `stage1-ui-prototype-20260304.html` | 1. UI prototype | Mar 4 | App window UI prototype |
+| `stage1-ui-dual-mode-20260304.html` | 1. UI prototype | Mar 4 | Dual-mode (Targets/Browse) UI prototype |
+| `stage2a-basic-concepts-x20-20260304.html` | 2. Exploration | Mar 4 | Basic icon concepts × 20 |
+| `stage2b-shield-variants-x20-20260304.html` | 2. Exploration | Mar 4 | Shield direction × 20 |
+| `stage2c-unique-concepts-x20-20260304.html` | 2. Exploration | Mar 4 | Wild/unique concepts × 20 |
+| `stage2d-owl-variants-x20-20260304.html` | 2. Exploration | Mar 4 | Night Owl variants × 20 (by Claude Code) |
+| `stage3a-convergence-5directions-x20-20260304.html` | 3. Convergence | Mar 4 | 5 refined directions × 20 |
+| `stage3b-pid-kill-variants-x20-20260304.html` | 3. Convergence | Mar 4 | PID × Kill variants × 20 |
+| `stage4-glitch-pid-x20-20260304.html` | 4. PID Refinement | Mar 4 | Glitch PID refinement × 20 |
+| `stage4a-pid-refined-20260304.html` | 4. PID Refinement | Mar 4 | PID concept refined by 牛仔 |
+| `stage4b-pid-final-20260304.html` | 4. PID Refinement | Mar 4 | PID concept final version |
+| `stage5-brand-animation-20260307.html` | 5. Brand GIF | Mar 7 | Brand animation (crosshair hunting processes) |
+| `stage6-abc-redesign-20260307.html` | 6. A/B/C Redesign | Mar 7 | 3 options: Deep Atmosphere / Minimal Tactical / Neon Scope |
+| `stage7a-final-fusion-ab-20260307.html` | 7. Final | Mar 7 | A+B Fusion · V1 (based on brand GIF style) |
+| `stage7b-v2-bold-20260307.html` | 7. Final | Mar 7 | V2 Bold |
+| `stage7c-v3-bold-final-20260307.html` | 7. Final | Mar 7 | V3 Bold · **SHIPPED** |
 
 ### Design parameters (final V3 Bold, 512px base)
 

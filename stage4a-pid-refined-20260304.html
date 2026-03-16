@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ProcessKiller — PID Refined</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;700&family=Space+Grotesk:wght@700;800&family=Syne:wght@700;800&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0e0e10;
+    font-family: 'DM Mono', monospace;
+    padding: 60px 40px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+  }
+
+  h1 { font-size: 11px; letter-spacing: 0.2em; color: #333; text-transform: uppercase; }
+
+  .row { display: flex; gap: 40px; align-items: flex-end; }
+
+  .card {
+    display: flex; flex-direction: column;
+    align-items: center; gap: 14px;
+  }
+
+  .icon {
+    width: 200px; height: 200px;
+    border-radius: 46px;
+    overflow: hidden; position: relative;
+    flex-shrink: 0;
+    transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    cursor: pointer;
+  }
+  .icon:hover { transform: scale(1.06) translateY(-5px); }
+  .icon canvas { display: block; }
+
+  .tag { font-size: 10px; color: #3a3a3a; letter-spacing: 0.08em; text-align: center; }
+</style>
+</head>
+<body>
+
+<h1>PID · Refined Series</h1>
+
+<div class="row">
+
+  <!-- V1: ORIGINAL FAITHFUL — tighten the original, better proportions -->
+  <div class="card">
+    <div class="icon">
+      <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="bg1" cx="50%" cy="45%" r="70%">
+            <stop offset="0%" stop-color="#222226"/>
+            <stop offset="100%" stop-color="#141416"/>
+          </radialGradient>
+          <!-- scanlines pattern -->
+          <pattern id="scan1" width="1" height="3" patternUnits="userSpaceOnUse">
+            <rect width="1" height="1" fill="rgba(0,0,0,0.18)"/>
+            <rect y="1" width="1" height="2" fill="rgba(0,0,0,0)"/>
+          </pattern>
+        </defs>
+
+        <rect width="200" height="200" fill="url(#bg1)"/>
+
+        <!-- subtle inner glow from center -->
+        <radialGradient id="glow1" cx="50%" cy="50%" r="45%">
+          <stop offset="0%" stop-color="rgba(255,70,60,0.07)"/>
+          <stop offset="100%" stop-color="rgba(255,70,60,0)"/>
+        </radialGradient>
+        <rect width="200" height="200" fill="url(#glow1)"/>
+
+        <!-- TEAL offset (behind, left) -->
+        <text x="97" y="115" font-family="'IBM Plex Mono',monospace" font-weight="700"
+              font-size="72" fill="#3ECFCF" opacity="0.7"
+              text-anchor="middle" letter-spacing="-2">PID</text>
+
+        <!-- RED offset (behind, right) -->
+        <text x="103" y="115" font-family="'IBM Plex Mono',monospace" font-weight="700"
+              font-size="72" fill="#FF4444" opacity="0.7"
+              text-anchor="middle" letter-spacing="-2">PID</text>
+
+        <!-- WHITE main text -->
+        <text x="100" y="115" font-family="'IBM Plex Mono',monospace" font-weight="700"
+              font-size="72" fill="#F2F2F2"
+              text-anchor="middle" letter-spacing="-2">PID</text>
+
+        <!-- RED strikethrough — thick, main kill line -->
+        <line x1="30" y1="102" x2="170" y2="102"
+              stroke="#FF453A" stroke-width="7" stroke-linecap="round"/>
+
+        <!-- TEAL echo line below -->
+        <line x1="38" y1="112" x2="162" y2="112"
+              stroke="#3ECFCF" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+
+        <!-- scanlines overlay -->
+        <rect width="200" height="200" fill="url(#scan1)" opacity="0.5"/>
+      </svg>
+    </div>
+    <div class="tag">V1 · Faithful+</div>
+  </div>
+
+  <!-- V2: HEAVIER — bolder font, more weight, darker bg, thicker lines -->
+  <div class="card">
+    <div class="icon">
+      <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="bg2" x1="30%" y1="0%" x2="70%" y2="100%">
+            <stop offset="0%" stop-color="#1e1e22"/>
+            <stop offset="100%" stop-color="#0e0e12"/>
+          </linearGradient>
+          <pattern id="scan2" width="1" height="3" patternUnits="userSpaceOnUse">
+            <rect width="1" height="1" fill="rgba(0,0,0,0.2)"/>
+          </pattern>
+          <filter id="textGlow2">
+            <feGaussianBlur stdDeviation="2" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <rect width="200" height="200" fill="url(#bg2)"/>
+
+        <!-- noise texture dots -->
+        <circle cx="40" cy="38" r="1" fill="white" opacity="0.04"/>
+        <circle cx="155" cy="165" r="1.2" fill="white" opacity="0.03"/>
+        <circle cx="170" cy="45" r="0.8" fill="white" opacity="0.04"/>
+
+        <!-- chromatic layers — wider split for more drama -->
+        <text x="93" y="116" font-family="'Syne',sans-serif" font-weight="800"
+              font-size="78" fill="#FF4040" opacity="0.55"
+              text-anchor="middle" letter-spacing="-3">PID</text>
+        <text x="107" y="116" font-family="'Syne',sans-serif" font-weight="800"
+              font-size="78" fill="#00D4D4" opacity="0.55"
+              text-anchor="middle" letter-spacing="-3">PID</text>
+
+        <!-- main text -->
+        <text x="100" y="116" font-family="'Syne',sans-serif" font-weight="800"
+              font-size="78" fill="#FFFFFF"
+              text-anchor="middle" letter-spacing="-3"
+              filter="url(#textGlow2)">PID</text>
+
+        <!-- strikethrough system: two red lines (top+bottom of thick band) -->
+        <rect x="24" y="94" width="152" height="11" rx="2" fill="#FF453A"/>
+        <!-- teal thin below -->
+        <line x1="34" y1="114" x2="166" y2="114"
+              stroke="#00D4D4" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+
+        <rect width="200" height="200" fill="url(#scan2)" opacity="0.4"/>
+      </svg>
+    </div>
+    <div class="tag">V2 · Heavier</div>
+  </div>
+
+  <!-- V3: DARK MINIMAL — smaller PID, lots of breathing room, surgical feel -->
+  <div class="card">
+    <div class="icon">
+      <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="bg3" cx="45%" cy="42%" r="65%">
+            <stop offset="0%" stop-color="#1c1c20"/>
+            <stop offset="100%" stop-color="#101012"/>
+          </radialGradient>
+          <pattern id="scan3" width="1" height="4" patternUnits="userSpaceOnUse">
+            <rect width="1" height="1" fill="rgba(0,0,0,0.15)"/>
+          </pattern>
+        </defs>
+
+        <rect width="200" height="200" fill="url(#bg3)"/>
+
+        <!-- teal offset -->
+        <text x="96.5" y="108" font-family="'IBM Plex Mono',monospace" font-weight="700"
+              font-size="60" fill="#2FC8C8" opacity="0.65"
+              text-anchor="middle" letter-spacing="2">PID</text>
+        <!-- red offset -->
+        <text x="103.5" y="108" font-family="'IBM Plex Mono',monospace" font-weight="700"
+              font-size="60" fill="#FF5040" opacity="0.65"
+              text-anchor="middle" letter-spacing="2">PID</text>
+        <!-- white main -->
+        <text x="100" y="108" font-family="'IBM Plex Mono',monospace" font-weight="700"
+              font-size="60" fill="#EFEFEF"
+              text-anchor="middle" letter-spacing="2">PID</text>
+
+        <!-- single clean red slash — diagonal, not horizontal -->
+        <!-- horizontal kill bar -->
+        <rect x="28" y="96.5" width="144" height="6" rx="3" fill="#FF453A" opacity="0.95"/>
+
+        <!-- teal echo above -->
+        <line x1="36" y1="88" x2="164" y2="88"
+              stroke="#2FC8C8" stroke-width="1.8" opacity="0.45" stroke-linecap="round"/>
+
+        <!-- small label: ×1 below, feels like a UI element -->
+        <text x="100" y="138" font-family="'IBM Plex Mono',monospace" font-size="10"
+              fill="#444" text-anchor="middle" letter-spacing="0.12em">PROCESS TERMINATED</text>
+
+        <rect width="200" height="200" fill="url(#scan3)" opacity="0.45"/>
+      </svg>
+    </div>
+    <div class="tag">V3 · Surgical</div>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <!-- V4: WARM TINT — bg has a very subtle warm vignette, feels more macOS-native -->
+  <div class="card">
+    <div class="icon">
+      <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="bg4" cx="50%" cy="46%" r="72%">
+            <stop offset="0%" stop-color="#26201e"/>
+            <stop offset="60%" stop-color="#1a1614"/>
+            <stop offset="100%" stop-color="#0e0c0a"/>
+          </radialGradient>
+          <radialGradient id="warmGlow4" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(255,80,50,0.1)"/>
+            <stop offset="100%" stop-color="rgba(255,80,50,0)"/>
+          </radialGradient>
+          <pattern id="scan4" width="1" height="3" patternUnits="userSpaceOnUse">
+            <rect width="1" height="1" fill="rgba(0,0,0,0.18)"/>
+          </pattern>
+          <filter id="tg4">
+            <feGaussianBlur stdDeviation="1.5" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <rect width="200" height="200" fill="url(#bg4)"/>
+        <rect width="200" height="200" fill="url(#warmGlow4)"/>
+
+        <!-- subtle horizontal "scan" stripe across middle -->
+        <rect x="0" y="90" width="200" height="28" fill="rgba(255,255,255,0.015)"/>
+
+        <!-- TEAL shifted left -->
+        <text x="95" y="116" font-family="'IBM Plex Mono',monospace" font-weight="700"
+              font-size="74" fill="#40D4C8" opacity="0.6"
+              text-anchor="middle" letter-spacing="-2">PID</text>
+        <!-- RED shifted right -->
+        <text x="105" y="116" font-family="'IBM Plex Mono',monospace" font-weight="700"
+              font-size="74" fill="#FF5040" opacity="0.6"
+              text-anchor="middle" letter-spacing="-2">PID</text>
+        <!-- WHITE core -->
+        <text x="100" y="116" font-family="'IBM Plex Mono',monospace" font-weight="700"
+              font-size="74" fill="#F4F0EE"
+              text-anchor="middle" letter-spacing="-2" filter="url(#tg4)">PID</text>
+
+        <!-- two-line kill: thick red + thin teal -->
+        <line x1="26" y1="103" x2="174" y2="103"
+              stroke="#FF453A" stroke-width="8" stroke-linecap="round"/>
+        <line x1="36" y1="115" x2="164" y2="115"
+              stroke="#40D4C8" stroke-width="2.5" opacity="0.55" stroke-linecap="round"/>
+
+        <rect width="200" height="200" fill="url(#scan4)" opacity="0.45"/>
+      </svg>
+    </div>
+    <div class="tag">V4 · Warm Tint</div>
+  </div>
+
+  <!-- V5: SPLIT GLITCH — the letters themselves are split/offset vertically mid-way -->
+  <div class="card">
+    <div class="icon">
+      <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="bg5" cx="50%" cy="48%" r="68%">
+            <stop offset="0%" stop-color="#1e1e24"/>
+            <stop offset="100%" stop-color="#0e0e12"/>
+          </radialGradient>
+          <pattern id="scan5" width="1" height="3" patternUnits="userSpaceOnUse">
+            <rect width="1" height="1" fill="rgba(0,0,0,0.18)"/>
+          </pattern>
+          <!-- clip: TOP HALF only -->
+          <clipPath id="topHalf">
+            <rect x="0" y="0" width="200" height="101"/>
+          </clipPath>
+          <!-- clip: BOTTOM HALF only -->
+          <clipPath id="bottomHalf">
+            <rect x="0" y="101" width="200" height="99"/>
+          </clipPath>
+        </defs>
+
+        <rect width="200" height="200" fill="url(#bg5)"/>
+
+        <!-- TOP half — offset right by 4px -->
+        <g clip-path="url(#topHalf)">
+          <!-- teal -->
+          <text x="95" y="116" font-family="'IBM Plex Mono',monospace" font-weight="700"
+                font-size="74" fill="#3ECFCF" opacity="0.6"
+                text-anchor="middle" transform="translate(4,0)" letter-spacing="-2">PID</text>
+          <!-- red -->
+          <text x="105" y="116" font-family="'IBM Plex Mono',monospace" font-weight="700"
+                font-size="74" fill="#FF4444" opacity="0.6"
+                text-anchor="middle" transform="translate(4,0)" letter-spacing="-2">PID</text>
+          <!-- white -->
+          <text x="100" y="116" font-family="'IBM Plex Mono',monospace" font-weight="700"
+                font-size="74" fill="#F2F2F2" text-anchor="middle"
+                transform="translate(4,0)" letter-spacing="-2">PID</text>
+        </g>
+
+        <!-- BOTTOM half — offset left by 4px -->
+        <g clip-path="url(#bottomHalf)">
+          <!-- teal -->
+          <text x="95" y="116" font-family="'IBM Plex Mono',monospace" font-weight="700"
+                font-size="74" fill="#3ECFCF" opacity="0.6"
+                text-anchor="middle" transform="translate(-4,0)" letter-spacing="-2">PID</text>
+          <!-- red -->
+          <text x="105" y="116" font-family="'IBM Plex Mono',monospace" font-weight="700"
+                font-size="74" fill="#FF4444" opacity="0.6"
+                text-anchor="middle" transform="translate(-4,0)" letter-spacing="-2">PID</text>
+          <!-- white -->
+          <text x="100" y="116" font-family="'IBM Plex Mono',monospace" font-weight="700"
+                font-size="74" fill="#F2F2F2" text-anchor="middle"
+                transform="translate(-4,0)" letter-spacing="-2">PID</text>
+        </g>
+
+        <!-- the "split" seam line — very thin, slightly bright -->
+        <line x1="0" y1="101" x2="200" y2="101"
+              stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+        <!-- kill line sits right on the seam, reinforcing the split -->
+        <line x1="24" y1="101" x2="176" y2="101"
+              stroke="#FF453A" stroke-width="6.5" stroke-linecap="round"/>
+        <!-- teal echo -->
+        <line x1="34" y1="112" x2="166" y2="112"
+              stroke="#3ECFCF" stroke-width="2" opacity="0.5" stroke-linecap="round"/>
+
+        <rect width="200" height="200" fill="url(#scan5)" opacity="0.4"/>
+      </svg>
+    </div>
+    <div class="tag">V5 · Split Glitch ⭐</div>
+  </div>
+
+  <!-- V6: MONOCHROME RED — no teal, just red chromatic, brutal and clean -->
+  <div class="card">
+    <div class="icon">
+      <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="bg6" cx="50%" cy="46%" r="70%">
+            <stop offset="0%" stop-color="#200c0c"/>
+            <stop offset="60%" stop-color="#160808"/>
+            <stop offset="100%" stop-color="#0a0404"/>
+          </radialGradient>
+          <radialGradient id="glow6" cx="50%" cy="50%" r="48%">
+            <stop offset="0%" stop-color="rgba(255,50,40,0.12)"/>
+            <stop offset="100%" stop-color="rgba(255,50,40,0)"/>
+          </radialGradient>
+          <pattern id="scan6" width="1" height="3" patternUnits="userSpaceOnUse">
+            <rect width="1" height="1" fill="rgba(0,0,0,0.2)"/>
+          </pattern>
+          <filter id="rg6">
+            <feGaussianBlur stdDeviation="3" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <rect width="200" height="200" fill="url(#bg6)"/>
+        <rect width="200" height="200" fill="url(#glow6)"/>
+
+        <!-- only red offsets — monochromatic glitch -->
+        <text x="93" y="116" font-family="'IBM Plex Mono',monospace" font-weight="700"
+              font-size="74" fill="#FF3030" opacity="0.4"
+              text-anchor="middle" letter-spacing="-2">PID</text>
+        <text x="107" y="116" font-family="'IBM Plex Mono',monospace" font-weight="700"
+              font-size="74" fill="#FF3030" opacity="0.4"
+              text-anchor="middle" letter-spacing="-2">PID</text>
+        <!-- white -->
+        <text x="100" y="116" font-family="'IBM Plex Mono',monospace" font-weight="700"
+              font-size="74" fill="#FFFFFF"
+              text-anchor="middle" letter-spacing="-2" filter="url(#rg6)">PID</text>
+
+        <!-- thick red bar — goes full bleed edge to edge almost -->
+        <rect x="16" y="95" width="168" height="12" rx="2.5" fill="#FF453A"/>
+
+        <!-- thinner shadow bar below -->
+        <rect x="24" y="110" width="152" height="3" rx="1.5" fill="#FF453A" opacity="0.3"/>
+
+        <rect width="200" height="200" fill="url(#scan6)" opacity="0.4"/>
+      </svg>
+    </div>
+    <div class="tag">V6 · Mono Red</div>
+  </div>
+
+</div>
+
+</body>
+</html>

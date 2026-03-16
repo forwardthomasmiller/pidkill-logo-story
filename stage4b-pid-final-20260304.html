@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ProcessKiller PID — Final</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 48px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  p {
+    font-size: 11px;
+    color: #333;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  /* The 3 sizes row */
+  .sizes {
+    display: flex;
+    align-items: flex-end;
+    gap: 28px;
+  }
+
+  .wrap {
+    border-radius: calc(200px * 0.225);
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+  }
+  .wrap:hover { transform: scale(1.06) translateY(-5px); }
+
+  .s1 { width: 200px; height: 200px; border-radius: calc(200px * 0.225); }
+  .s2 { width: 80px;  height: 80px;  border-radius: calc(80px  * 0.225); }
+  .s3 { width: 40px;  height: 40px;  border-radius: calc(40px  * 0.225); }
+
+  .wrap svg { display: block; width: 100%; height: 100%; }
+
+  /* variants row */
+  .variants {
+    display: flex;
+    gap: 24px;
+    align-items: flex-end;
+  }
+  .vcard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .vwrap {
+    width: 120px; height: 120px;
+    border-radius: calc(120px * 0.225);
+    overflow: hidden; cursor: pointer;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .vwrap:hover { transform: scale(1.08) translateY(-3px); }
+  .vwrap svg { display: block; width: 100%; height: 100%; }
+  .vlabel { font-size: 10px; color: #333; letter-spacing: 0.08em; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════
+  THE ONE — perfectly proportioned
+  SF Mono · tight chromatic · clean line
+  ═══════════════════════════════════ -->
+
+<p>ProcessKiller · Final Icon</p>
+
+<div class="sizes">
+
+  <!-- 200px hero -->
+  <div class="wrap s1">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="bg" x1="50%" y1="0%" x2="50%" y2="100%">
+          <stop offset="0%" stop-color="#0e1016"/>
+          <stop offset="100%" stop-color="#080a0e"/>
+        </linearGradient>
+        <filter id="lineGlow">
+          <feGaussianBlur stdDeviation="3.5" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="textHaze">
+          <feGaussianBlur stdDeviation="0.8" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+
+      <rect width="200" height="200" fill="url(#bg)"/>
+
+      <!-- chromatic red — offset left -->
+      <text x="97" y="113"
+            text-anchor="middle"
+            font-family="SF Mono, Menlo, 'Courier New', monospace"
+            font-size="70" font-weight="900"
+            fill="#FF2020" opacity="0.28">PID</text>
+
+      <!-- chromatic cyan — offset right -->
+      <text x="103" y="113"
+            text-anchor="middle"
+            font-family="SF Mono, Menlo, 'Courier New', monospace"
+            font-size="70" font-weight="900"
+            fill="#00DDFF" opacity="0.28">PID</text>
+
+      <!-- main white text — dead center -->
+      <text x="100" y="113"
+            text-anchor="middle"
+            font-family="SF Mono, Menlo, 'Courier New', monospace"
+            font-size="70" font-weight="900"
+            fill="#E4E8EC"
+            filter="url(#textHaze)">PID</text>
+
+      <!-- strikethrough: glow layer first -->
+      <line x1="30" y1="101" x2="170" y2="101"
+            stroke="#FF453A" stroke-width="5.5"
+            stroke-linecap="round"
+            filter="url(#lineGlow)"/>
+
+      <!-- strikethrough: crisp top layer -->
+      <line x1="30" y1="101" x2="170" y2="101"
+            stroke="#FF453A" stroke-width="5"
+            stroke-linecap="round"/>
+
+      <!-- cyan echo — thin, below -->
+      <line x1="38" y1="110" x2="162" y2="110"
+            stroke="#00CCEE" stroke-width="1.8"
+            stroke-linecap="round" opacity="0.35"/>
+    </svg>
+  </div>
+
+  <!-- 80px -->
+  <div class="wrap s2">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="bg2" x1="50%" y1="0%" x2="50%" y2="100%">
+          <stop offset="0%" stop-color="#0e1016"/>
+          <stop offset="100%" stop-color="#080a0e"/>
+        </linearGradient>
+      </defs>
+      <rect width="200" height="200" fill="url(#bg2)"/>
+      <text x="97" y="113" text-anchor="middle"
+            font-family="SF Mono, Menlo, monospace"
+            font-size="70" font-weight="900"
+            fill="#FF2020" opacity="0.28">PID</text>
+      <text x="103" y="113" text-anchor="middle"
+            font-family="SF Mono, Menlo, monospace"
+            font-size="70" font-weight="900"
+            fill="#00DDFF" opacity="0.28">PID</text>
+      <text x="100" y="113" text-anchor="middle"
+            font-family="SF Mono, Menlo, monospace"
+            font-size="70" font-weight="900"
+            fill="#E4E8EC">PID</text>
+      <line x1="30" y1="101" x2="170" y2="101"
+            stroke="#FF453A" stroke-width="5.5" stroke-linecap="round"/>
+      <line x1="38" y1="110" x2="162" y2="110"
+            stroke="#00CCEE" stroke-width="2" opacity="0.35" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <!-- 40px -->
+  <div class="wrap s3">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <rect width="200" height="200" fill="#0b0d12"/>
+      <text x="100" y="113" text-anchor="middle"
+            font-family="SF Mono, Menlo, monospace"
+            font-size="70" font-weight="900"
+            fill="#E4E8EC">PID</text>
+      <line x1="28" y1="101" x2="172" y2="101"
+            stroke="#FF453A" stroke-width="7" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════
+  MICRO TWEAKS — 4 subtle
+  variations side by side
+  ═══════════════════════ -->
+<div class="variants">
+
+  <!-- T1: slightly warmer bg -->
+  <div class="vcard">
+    <div class="vwrap">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="bgt1" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" stop-color="#111018"/>
+            <stop offset="100%" stop-color="#08080e"/>
+          </linearGradient>
+        </defs>
+        <rect width="200" height="200" fill="url(#bgt1)"/>
+        <text x="97" y="113" text-anchor="middle" font-family="SF Mono,Menlo,monospace" font-size="70" font-weight="900" fill="#FF2020" opacity="0.28">PID</text>
+        <text x="103" y="113" text-anchor="middle" font-family="SF Mono,Menlo,monospace" font-size="70" font-weight="900" fill="#00DDFF" opacity="0.28">PID</text>
+        <text x="100" y="113" text-anchor="middle" font-family="SF Mono,Menlo,monospace" font-size="70" font-weight="900" fill="#E4E8EC">PID</text>
+        <line x1="30" y1="101" x2="170" y2="101" stroke="#FF453A" stroke-width="5.5" stroke-linecap="round"/>
+        <line x1="38" y1="110" x2="162" y2="110" stroke="#00CCEE" stroke-width="1.8" opacity="0.35" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="vlabel">cool blue</div>
+  </div>
+
+  <!-- T2: pure black bg -->
+  <div class="vcard">
+    <div class="vwrap">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="200" fill="#060608"/>
+        <text x="97" y="113" text-anchor="middle" font-family="SF Mono,Menlo,monospace" font-size="70" font-weight="900" fill="#FF2020" opacity="0.28">PID</text>
+        <text x="103" y="113" text-anchor="middle" font-family="SF Mono,Menlo,monospace" font-size="70" font-weight="900" fill="#00DDFF" opacity="0.28">PID</text>
+        <text x="100" y="113" text-anchor="middle" font-family="SF Mono,Menlo,monospace" font-size="70" font-weight="900" fill="#E4E8EC">PID</text>
+        <line x1="30" y1="101" x2="170" y2="101" stroke="#FF453A" stroke-width="5.5" stroke-linecap="round"/>
+        <line x1="38" y1="110" x2="162" y2="110" stroke="#00CCEE" stroke-width="1.8" opacity="0.35" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="vlabel">pure black</div>
+  </div>
+
+  <!-- T3: line slightly thicker -->
+  <div class="vcard">
+    <div class="vwrap">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="bgt3" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" stop-color="#0e1016"/>
+            <stop offset="100%" stop-color="#080a0e"/>
+          </linearGradient>
+          <filter id="lg3"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <rect width="200" height="200" fill="url(#bgt3)"/>
+        <text x="97" y="113" text-anchor="middle" font-family="SF Mono,Menlo,monospace" font-size="70" font-weight="900" fill="#FF2020" opacity="0.28">PID</text>
+        <text x="103" y="113" text-anchor="middle" font-family="SF Mono,Menlo,monospace" font-size="70" font-weight="900" fill="#00DDFF" opacity="0.28">PID</text>
+        <text x="100" y="113" text-anchor="middle" font-family="SF Mono,Menlo,monospace" font-size="70" font-weight="900" fill="#E4E8EC">PID</text>
+        <!-- thicker line with glow -->
+        <line x1="28" y1="101" x2="172" y2="101" stroke="#FF453A" stroke-width="7.5" stroke-linecap="round" filter="url(#lg3)"/>
+        <line x1="28" y1="101" x2="172" y2="101" stroke="#FF453A" stroke-width="7" stroke-linecap="round"/>
+        <line x1="38" y1="112" x2="162" y2="112" stroke="#00CCEE" stroke-width="1.8" opacity="0.3" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="vlabel">fat strike</div>
+  </div>
+
+  <!-- T4: no cyan echo, pure minimal -->
+  <div class="vcard">
+    <div class="vwrap">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="bgt4" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" stop-color="#0e1016"/>
+            <stop offset="100%" stop-color="#080a0e"/>
+          </linearGradient>
+        </defs>
+        <rect width="200" height="200" fill="url(#bgt4)"/>
+        <text x="97" y="113" text-anchor="middle" font-family="SF Mono,Menlo,monospace" font-size="70" font-weight="900" fill="#FF2020" opacity="0.28">PID</text>
+        <text x="103" y="113" text-anchor="middle" font-family="SF Mono,Menlo,monospace" font-size="70" font-weight="900" fill="#00DDFF" opacity="0.28">PID</text>
+        <text x="100" y="113" text-anchor="middle" font-family="SF Mono,Menlo,monospace" font-size="70" font-weight="900" fill="#E4E8EC">PID</text>
+        <!-- no echo line — just the one strike -->
+        <line x1="30" y1="101" x2="170" y2="101" stroke="#FF453A" stroke-width="5.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="vlabel">pure ×1</div>
+  </div>
+
+</div>
+
+</body>
+</html>
