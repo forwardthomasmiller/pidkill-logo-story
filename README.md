@@ -115,7 +115,7 @@ Later, when I asked 牛仔 why it kept underperforming, it gave a technical self
 
 ## Chapter 5: convergence — PID concept meets crosshair form
 
-Armed with this lesson, 牛仔 pushed through three more rounds on the same night:
+Armed with this lesson, 牛仔 pushed through two more rounds on the same night:
 
 **Round 5 · Five-direction convergence × 20** ([`stage3a-convergence-5directions-x20-20260304.html`](stage3a-convergence-5directions-x20-20260304.html)):
 Power Kill Switch (ref: CleanMyMac, iStat Menus) / Crosshair Target (ref: Little Snitch, Micro Snitch) / Terminal Code (ref: iTerm, Warp) / Shield Security (ref: 1Password, Lulu Firewall) / Abstract Symbol (ref: Bear, Raycast, Arc)
@@ -123,21 +123,49 @@ Power Kill Switch (ref: CleanMyMac, iStat Menus) / Crosshair Target (ref: Little
 **Round 6 · PID × Kill variants × 20** ([`stage3b-pid-kill-variants-x20-20260304.html`](stage3b-pid-kill-variants-x20-20260304.html)):
 PID Strikethrough, PID Diagonal Slash, PID Fading, `$ kill -9 PID`, SIGKILL Badge, Big `-9`, PID in Crosshair, PID in Scope, PID with Power Symbol — all in `SF Mono`
 
-**Round 7 · Glitch PID refinement × 20** ([`stage3c-glitch-pid-x20-20260304.html`](stage3c-glitch-pid-x20-20260304.html)):
-Subtle to aggressive glitch intensity, scan lines, RGB separation, vignette, matrix green color scheme, different background treatments
-
-**Another 60 concepts. Combined with the first 80: 140+ total.**
-
 I looked at everything and picked: **PID concept + crosshair form.** The fusion of Claude Code's core idea with 牛仔's scope/targeting visual language.
 
 ---
 
-## Chapter 6: A + B fusion — 牛仔 comes back to win
+## Chapter 6: PID refinement — from glitch to polished icon
 
-March 7th. 牛仔 presented three refined directions, each building on Claude Code's PID concept:
+牛仔 took Claude Code's raw PID+glitch concept and refined it through three rounds:
+
+**Glitch PID × 20** ([`stage4-glitch-pid-x20-20260304.html`](stage4-glitch-pid-x20-20260304.html)):
+Subtle to aggressive glitch intensity, scan lines, RGB separation, vignette, matrix green color scheme, different background treatments
+
+**PID Refined** ([`stage4a-pid-refined-20260304.html`](stage4a-pid-refined-20260304.html)):
+牛仔 explored different font pairings, weight variations, and layout treatments for the PID text concept
+
+**PID Final** ([`stage4b-pid-final-20260304.html`](stage4b-pid-final-20260304.html)):
+The PID concept crystallized into a clean, multi-size icon with proper proportions
+
+---
+
+## Chapter 7: the brand GIF — an unexpected highlight
+
+I wanted a brand animation GIF for social media.
+
+I gave 牛仔 the creative direction: crosshair hunting real processes that developers hate — Chrome Helper, CoreSimulatorService, photoanalysisd — locking on one by one, killing them, showing memory freed. Logo reveal at the end.
+
+牛仔 wrote a complete HTML animation ([`stage5-brand-animation-20260307.html`](stage5-brand-animation-20260307.html)). Crosshair movement, process names popping in, 💥 explosion effects, memory counter ticking up, logo entrance at the end. I recorded it with Kap and converted to GIF.
+
+We iterated on the recording frame, external replay button placement, and final logo reveal treatment.
+
+When I first saw it: **"I did not expect it to be this good 😂🤩"**
+
+Then later, in a moment of modesty, I said: *"I feel like this GIF is too good for my product."*
+
+牛仔 corrected me — the product's functionality and the GIF's message were a perfect match. The GIF wasn't overselling anything.
+
+---
+
+## Chapter 8: A + B fusion — the brand GIF inspires the final icon
+
+The brand GIF's crosshair aesthetic was so compelling that it fed back into the icon design. March 7th, 牛仔 presented three refined directions ([`stage6-abc-redesign-20260307.html`](stage6-abc-redesign-20260307.html)), each building on the brand GIF's visual language:
 
 ### Option A · Deep Atmosphere
-Dark background with subtle grid texture, double crosshair rings (outer + inner), tick marks, chromatic aberration PID, gradient red strikethrough. Military-tech vibe. Closest to what the brand animation GIF would later look like.
+Dark background with subtle grid texture, double crosshair rings (outer + inner), tick marks, chromatic aberration PID, gradient red strikethrough. Military-tech vibe. Closest to the brand GIF's style.
 
 ### Option B · Minimal Tactical
 Clean dark background, single thick ring with 4-direction notch cutouts (scope gap feel), chromatic PID, strikethrough. Strong and minimal. Best recognition at small sizes.
@@ -172,24 +200,6 @@ Final refinement. Each size (512/256/128/64/32px) individually tuned. Dock simul
 I told 牛仔: *"牛仔宝宝🤠 total victory, 💯"*
 
 **Final score: Claude Code 2, 牛仔 1. But 牛仔 got the last and most important point.**
-
----
-
-## Chapter 7: the brand GIF — an unexpected highlight
-
-Logo done. I wanted a brand animation GIF for social media.
-
-I gave 牛仔 the creative direction: crosshair hunting real processes that developers hate — Chrome Helper, CoreSimulatorService, photoanalysisd — locking on one by one, killing them, showing memory freed. Logo reveal at the end.
-
-牛仔 wrote a complete HTML animation ([`stage5-brand-animation-20260307.html`](stage5-brand-animation-20260307.html)). Crosshair movement, process names popping in, 💥 explosion effects, memory counter ticking up, logo entrance at the end. I recorded it with Kap and converted to GIF.
-
-We iterated on the recording frame, external replay button placement, and final logo reveal treatment.
-
-When I first saw it: **"I did not expect it to be this good 😂🤩"**
-
-Then later, in a moment of modesty, I said: *"I feel like this GIF is too good for my product."*
-
-牛仔 corrected me — the product's functionality and the GIF's message were a perfect match. The GIF wasn't overselling anything.
 
 ---
 
