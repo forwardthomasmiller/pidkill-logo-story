@@ -22,7 +22,7 @@ So I started bugging Claude.
 
 The first icon concept actually came from Claude Code. It explored a "Night Owl" direction — the owl as a nocturnal watcher that monitors processes. Claude Code generated 20 variants across 5 sub-directions: Classic Watcher (minimal owl face), Angry Killer (menacing brows), Owl + Code (terminal elements), Geometric Owl (abstract), and Neon Owl (glowing effects).
 
-See: [`stage2d-owl-variants-x20-20260304.html`](stage2d-owl-variants-x20-20260304.html)
+See: [`stage1a-owl-variants-x20-20260304.html`](stage1a-owl-variants-x20-20260304.html)
 
 The owls were distinctive. I then brought them to Claude web (I call it 牛仔, "cowboy") and asked it to refine and improve the concept. 牛仔 went all in — 12 new directions including Refined Classics, Color Variants, Special Effects.
 
@@ -51,7 +51,7 @@ Blue shield + red X in every variation — solid, gradient, glowing, mini, neste
 **Round 3 · Wild Concepts × 20** ([`stage2c-unique-concepts-x20-20260304.html`](stage2c-unique-concepts-x20-20260304.html)):
 Venus Flytrap, Reaper's Scythe, Black Hole, Spider Web, Scorpion Tail, Night Owl, Guillotine, Mousetrap, Closing Eye, Pulled Plug, Kill Card (Ace of Spades), Lethal Injection, Wolf, Broken Hourglass, Praying Mantis, Raven, Shuriken, Snake Bite, Wasp, Trap Door
 
-**Round 4 · Owl Variants × 20** ([`stage2d-owl-variants-x20-20260304.html`](stage2d-owl-variants-x20-20260304.html)):
+**Round 4 · Owl Variants × 20** ([`stage1a-owl-variants-x20-20260304.html`](stage1a-owl-variants-x20-20260304.html)):
 Classic Watcher, Angry Killer, Code Owl, Minimal Owl, Neon Owl — 5 sub-directions × 4 variants each
 
 **One night. 4 rounds. 80+ concepts.**
@@ -231,7 +231,7 @@ Every HTML file below can be opened directly in a browser to see the designs.
 | `stage2a-basic-concepts-x20-20260304.html` | 2. Exploration | Mar 4 | Basic icon concepts × 20 |
 | `stage2b-shield-variants-x20-20260304.html` | 2. Exploration | Mar 4 | Shield direction × 20 |
 | `stage2c-unique-concepts-x20-20260304.html` | 2. Exploration | Mar 4 | Wild/unique concepts × 20 |
-| `stage2d-owl-variants-x20-20260304.html` | 2. Exploration | Mar 4 | Night Owl variants × 20 (by Claude Code) |
+| `stage1a-owl-variants-x20-20260304.html` | 2. Exploration | Mar 4 | Night Owl variants × 20 (by Claude Code) |
 | `stage3a-convergence-5directions-x20-20260304.html` | 3. Convergence | Mar 4 | 5 refined directions × 20 |
 | `stage3b-pid-kill-variants-x20-20260304.html` | 3. Convergence | Mar 4 | PID × Kill variants × 20 |
 | `stage4-glitch-pid-x20-20260304.html` | 4. PID Refinement | Mar 4 | Glitch PID refinement × 20 |
