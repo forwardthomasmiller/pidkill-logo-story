@@ -2,7 +2,7 @@
 
 **(subtitle: you think Claude only chats, Claude Code only codes? no, no, no.)**
 
-*Early 2026 · ~2 weeks across multiple sessions · 140+ iterations · 0 design tools*
+*Early 2026 · ~2 weeks · 40+ iterations*
 
 ---
 
@@ -32,13 +32,17 @@ My response: *"you drew them more delicately, but I don't really like them 😂"
 
 I told 牛仔 to forget the owls and start from scratch. It came back with weapon series, terminal series, precision strike series.
 
+See: [`stage1c-weapon-terminal-strike-20260304.html`](stage1c-weapon-terminal-strike-20260304.html)
+
 My response: *"you're so abstract 🤣"*
+
+Claude Code's original Night Owl was still the best thing on the table. 牛仔 tried to improve it with 12 directions, then abandoned it for 3 entirely new series — and none of them worked. The original won by default.
 
 **Score: Claude Code 1, 牛仔 0.**
 
 ---
 
-## Chapter 2: the flood — 140+ concepts in one night
+## Chapter 2: the flood — one night, multiple possible directions
 
 March 4th, 牛仔 went nuclear. It opened up every direction it could think of:
 
@@ -51,10 +55,7 @@ Blue shield + red X in every variation — solid, gradient, glowing, mini, neste
 **Round 3 · Wild Concepts × 20** ([`stage2c-unique-concepts-x20-20260304.html`](stage2c-unique-concepts-x20-20260304.html)):
 Venus Flytrap, Reaper's Scythe, Black Hole, Spider Web, Scorpion Tail, Night Owl, Guillotine, Mousetrap, Closing Eye, Pulled Plug, Kill Card (Ace of Spades), Lethal Injection, Wolf, Broken Hourglass, Praying Mantis, Raven, Shuriken, Snake Bite, Wasp, Trap Door
 
-**Round 4 · Owl Variants × 20** ([`stage1a-owl-variants-x20-20260304.html`](stage1a-owl-variants-x20-20260304.html)):
-Classic Watcher, Angry Killer, Code Owl, Minimal Owl, Neon Owl — 5 sub-directions × 4 variants each
-
-**One night. 4 rounds. 80+ concepts.**
+**One night. 3 rounds. Multiple possible directions explored.**
 
 Every time, my feedback was the same: *"hmm still not quite right 😂"*
 
@@ -66,11 +67,13 @@ I told 牛仔: **"it doesn't feel like a real app icon."**
 
 ## Chapter 3: Claude Code wrote 4 lines and won again
 
-Somewhere in the middle of all this, I asked Claude Code to take a shot.
+Every previous attempt used **metaphors** — owls for "watching", weapons for "killing", shields for "protecting". Each one was indirect, requiring the viewer to decode the symbolism.
 
-See how 牛仔 later expanded on this concept: [`stage4-glitch-pid-x20-20260304.html`](stage4-glitch-pid-x20-20260304.html), [`stage4a-pid-refined-20260304.html`](stage4a-pid-refined-20260304.html), and [`stage4b-pid-final-20260304.html`](stage4b-pid-final-20260304.html)
+Claude Code took a completely different approach: **just use PID.**
 
-This is what it wrote:
+PID (Process ID) is the unique number assigned to every process in Unix. When developers kill a process in the terminal, they type `kill -9 <PID>`. It's not a metaphor — it's literally what the app does.
+
+Claude Code's code:
 
 ```svg
 <!-- red offset -->
@@ -87,9 +90,15 @@ This is what it wrote:
 
 Font: `SF Mono` — the default macOS system font. Zero downloads needed.
 
-Result: "PID" in white, red and cyan ghost copies offset to the sides (chromatic aberration / glitch effect), one red strikethrough across the middle.
+Red and cyan ghost copies offset to the sides create a chromatic aberration / glitch effect — the process is crashing. A red strikethrough across the middle — the process has been killed.
 
-**Glitch + chromatic aberration + strikethrough = process killed. The whole concept is right there in the visual.**
+**Not a metaphor. Direct expression: PID got killed.**
+
+牛仔 also explored the PID direction in its own way — five refined directions referencing real macOS apps like CleanMyMac, Little Snitch, and iTerm: [`stage3a-convergence-5directions-x20-20260304.html`](stage3a-convergence-5directions-x20-20260304.html)
+
+Claude Code's version was more direct — PID × Kill variants, all in SF Mono: [`stage3b-pid-kill-variants-x20-20260304.html`](stage3b-pid-kill-variants-x20-20260304.html)
+
+Same PID concept, two versions side by side. Claude Code's simple directness won again.
 
 I told 牛仔: *"haha, Claude Code wins **again** 😂"*
 
@@ -117,40 +126,23 @@ Later, when I asked 牛仔 why it kept underperforming, it gave a technical self
 
 ## Chapter 5: convergence — PID concept meets crosshair form
 
-Armed with this lesson, 牛仔 pushed through two more rounds on the same night:
+Armed with this lesson, 牛仔 started exploring a new direction: **put PID inside a crosshair** — fusing Claude Code's concept (PID + chromatic aberration + strikethrough) with the targeting reticle visual form.
 
-**Round 5 · Five-direction convergence × 20** ([`stage3a-convergence-5directions-x20-20260304.html`](stage3a-convergence-5directions-x20-20260304.html)):
-Power Kill Switch (ref: CleanMyMac, iStat Menus) / Crosshair Target (ref: Little Snitch, Micro Snitch) / Terminal Code (ref: iTerm, Warp) / Shield Security (ref: 1Password, Lulu Firewall) / Abstract Symbol (ref: Bear, Raycast, Arc)
+See: [`stage5-pid-meets-crosshair-20260304.html`](stage5-pid-meets-crosshair-20260304.html)
 
-**Round 6 · PID × Kill variants × 20** ([`stage3b-pid-kill-variants-x20-20260304.html`](stage3b-pid-kill-variants-x20-20260304.html)):
-PID Strikethrough, PID Diagonal Slash, PID Fading, `$ kill -9 PID`, SIGKILL Badge, Big `-9`, PID in Crosshair, PID in Scope, PID with Power Symbol — all in `SF Mono`
+From a simple PID + single scope ring, to adding notch ticks, double rings, grid textures, bracket locks... progressively layering elements until converging on a "full tactical" prototype — grid background + double ring + notch ticks + chromatic PID + horizontal strikethrough.
 
-I looked at everything and picked: **PID concept + crosshair form.** The fusion of Claude Code's core idea with 牛仔's scope/targeting visual language.
+At this point I was already pretty happy. I picked one of these as the product's official icon. If the brand GIF hadn't happened, the story would have ended here.
 
 ---
 
-## Chapter 6: PID refinement — from glitch to polished icon
-
-牛仔 took Claude Code's raw PID+glitch concept and refined it through three rounds:
-
-**Glitch PID × 20** ([`stage4-glitch-pid-x20-20260304.html`](stage4-glitch-pid-x20-20260304.html)):
-Subtle to aggressive glitch intensity, scan lines, RGB separation, vignette, matrix green color scheme, different background treatments
-
-**PID Refined** ([`stage4a-pid-refined-20260304.html`](stage4a-pid-refined-20260304.html)):
-牛仔 explored different font pairings, weight variations, and layout treatments for the PID text concept
-
-**PID Final** ([`stage4b-pid-final-20260304.html`](stage4b-pid-final-20260304.html)):
-The PID concept crystallized into a clean, multi-size icon with proper proportions
-
----
-
-## Chapter 7: the brand GIF — an unexpected highlight
+## Chapter 6: the brand GIF — an unexpected highlight
 
 I wanted a brand animation GIF for social media.
 
 I gave 牛仔 the creative direction: crosshair hunting real processes that developers hate — Chrome Helper, CoreSimulatorService, photoanalysisd — locking on one by one, killing them, showing memory freed. Logo reveal at the end.
 
-牛仔 wrote a complete HTML animation ([`stage5-brand-animation-20260307.html`](stage5-brand-animation-20260307.html)). Crosshair movement, process names popping in, 💥 explosion effects, memory counter ticking up, logo entrance at the end. I recorded it with Kap and converted to GIF.
+牛仔 wrote a complete HTML animation ([`stage6-brand-animation-20260307.html`](stage6-brand-animation-20260307.html)). Crosshair movement, process names popping in, 💥 explosion effects, memory counter ticking up, logo entrance at the end. I recorded it with Kap and converted to GIF.
 
 We iterated on the recording frame, external replay button placement, and final logo reveal treatment.
 
@@ -162,22 +154,13 @@ Then later, in a moment of modesty, I said: *"I feel like this GIF is too good f
 
 ---
 
-## Chapter 8: A + B fusion — the brand GIF inspires the final icon
+## Chapter 7: the brand GIF inspires the final icon
 
-The brand GIF's crosshair aesthetic was so compelling that it fed back into the icon design. March 7th, 牛仔 presented three refined directions ([`stage6-abc-redesign-20260307.html`](stage6-abc-redesign-20260307.html)), each building on the brand GIF's visual language:
+The logo that appeared at the end of the brand GIF looked way cooler than the icon I'd already picked — the crosshair + grid + diagonal strikethrough combo had so much more impact.
 
-### Option A · Deep Atmosphere
-Dark background with subtle grid texture, double crosshair rings (outer + inner), tick marks, chromatic aberration PID, gradient red strikethrough. Military-tech vibe. Closest to the brand GIF's style.
+I decided to adopt this cooler version, refine and optimize it as the official product icon.
 
-### Option B · Minimal Tactical
-Clean dark background, single thick ring with 4-direction notch cutouts (scope gap feel), chromatic PID, strikethrough. Strong and minimal. Best recognition at small sizes.
-
-### Option C · Neon Scope
-Double rings with corner brackets, glow effects, chromatic PID. Most "lock-on" ceremony, most visually dramatic.
-
-I picked: **A's atmosphere + B's thick ring.**
-
-I told 牛仔: *"use the red circle from B · MINIMAL TACTICAL's thick ring style as reference."*
+牛仔 iterated on several directions based on the brand GIF's visual language ([`stage7-abc-redesign-20260307.html`](stage7-abc-redesign-20260307.html)), eventually converging on a final design.
 
 ### The final icon (V1 → V2 → V3)
 
@@ -207,7 +190,7 @@ I told 牛仔: *"牛仔宝宝🤠 total victory, 💯"*
 
 ## Closing: what I actually took away from this
 
-Two weeks. 140+ iterations. From Venus Flytraps to the final tactical scope.
+Two weeks. 40+ iterations. From Venus Flytraps to the final tactical scope.
 
 The core concept of the final logo came from Claude Code's throwaway 3-line SVG. The final form came from 牛仔 after it lost twice, figured out *why* it lost, and adjusted its entire approach.
 
@@ -227,18 +210,20 @@ Every HTML file below can be opened directly in a browser to see the designs.
 
 | File | Stage | Date | Content |
 |------|-------|------|---------|
-| `stage1b-owl-refinement-failed-20260304.html` | 1. Owl Refinement | Mar 4 | 牛仔's failed owl improvements + weapon/terminal directions |
+| `stage1b-owl-refinement-failed-20260304.html` | 1. Owl Refinement | Mar 4 | 牛仔's failed owl improvements |
+| `stage1c-weapon-terminal-strike-20260304.html` | 1. New Directions | Mar 4 | Weapon / Terminal / Precision Strike series (all rejected) |
 | `stage2a-basic-concepts-x20-20260304.html` | 2. Exploration | Mar 4 | Basic icon concepts × 20 |
 | `stage2b-shield-variants-x20-20260304.html` | 2. Exploration | Mar 4 | Shield direction × 20 |
 | `stage2c-unique-concepts-x20-20260304.html` | 2. Exploration | Mar 4 | Wild/unique concepts × 20 |
-| `stage1a-owl-variants-x20-20260304.html` | 2. Exploration | Mar 4 | Night Owl variants × 20 (by Claude Code) |
-| `stage3a-convergence-5directions-x20-20260304.html` | 3. Convergence | Mar 4 | 5 refined directions × 20 |
-| `stage3b-pid-kill-variants-x20-20260304.html` | 3. Convergence | Mar 4 | PID × Kill variants × 20 |
+| `stage1a-owl-variants-x20-20260304.html` | 1. Night Owl | Mar 4 | Night Owl variants × 20 (by Claude Code) |
+| `stage3a-convergence-5directions-x20-20260304.html` | 3. PID Direction | Mar 4 | 牛仔's PID exploration: 5 directions × 20 |
+| `stage3b-pid-kill-variants-x20-20260304.html` | 3. PID Direction | Mar 4 | Claude Code's PID × Kill variants × 20 |
+| `stage5-pid-meets-crosshair-20260304.html` | 5. Convergence | Mar 4 | PID + crosshair fusion concepts |
 | `stage4-glitch-pid-x20-20260304.html` | 4. PID Refinement | Mar 4 | Glitch PID refinement × 20 |
 | `stage4a-pid-refined-20260304.html` | 4. PID Refinement | Mar 4 | PID concept refined by 牛仔 |
 | `stage4b-pid-final-20260304.html` | 4. PID Refinement | Mar 4 | PID concept final version |
-| `stage5-brand-animation-20260307.html` | 5. Brand GIF | Mar 7 | Brand animation (crosshair hunting processes) |
-| `stage6-abc-redesign-20260307.html` | 6. A/B/C Redesign | Mar 7 | 3 options: Deep Atmosphere / Minimal Tactical / Neon Scope |
+| `stage6-brand-animation-20260307.html` | 5. Brand GIF | Mar 7 | Brand animation (crosshair hunting processes) |
+| `stage7-abc-redesign-20260307.html` | 6. A/B/C Redesign | Mar 7 | 3 options: Deep Atmosphere / Minimal Tactical / Neon Scope |
 | `stage7a-final-fusion-ab-20260307.html` | 7. Final | Mar 7 | A+B Fusion · V1 (based on brand GIF style) |
 | `stage7b-v2-bold-20260307.html` | 7. Final | Mar 7 | V2 Bold |
 | `stage7c-v3-bold-final-20260307.html` | 7. Final | Mar 7 | V3 Bold · **SHIPPED** |
