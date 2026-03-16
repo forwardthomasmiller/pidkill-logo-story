@@ -227,8 +227,6 @@ Every HTML file below can be opened directly in a browser to see the designs.
 
 | File | Stage | Date | Content |
 |------|-------|------|---------|
-| `stage1-ui-prototype-20260304.html` | 1. UI prototype | Mar 4 | App window UI prototype |
-| `stage1-ui-dual-mode-20260304.html` | 1. UI prototype | Mar 4 | Dual-mode (Targets/Browse) UI prototype |
 | `stage1b-owl-refinement-failed-20260304.html` | 1. Owl Refinement | Mar 4 | 牛仔's failed owl improvements + weapon/terminal directions |
 | `stage2a-basic-concepts-x20-20260304.html` | 2. Exploration | Mar 4 | Basic icon concepts × 20 |
 | `stage2b-shield-variants-x20-20260304.html` | 2. Exploration | Mar 4 | Shield direction × 20 |
