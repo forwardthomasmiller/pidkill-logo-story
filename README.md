@@ -26,6 +26,8 @@ See: [`stage2d-owl-variants-x20-20260304.html`](stage2d-owl-variants-x20-2026030
 
 The owls were distinctive. I then brought them to Claude web (I call it 牛仔, "cowboy") and asked it to refine and improve the concept. 牛仔 went all in — 12 new directions including Refined Classics, Color Variants, Special Effects.
 
+See: [`stage1b-owl-refinement-failed-20260304.html`](stage1b-owl-refinement-failed-20260304.html)
+
 My response: *"you drew them more delicately, but I don't really like them 😂"*
 
 I told 牛仔 to forget the owls and start from scratch. It came back with weapon series, terminal series, precision strike series.
@@ -227,6 +229,7 @@ Every HTML file below can be opened directly in a browser to see the designs.
 |------|-------|------|---------|
 | `stage1-ui-prototype-20260304.html` | 1. UI prototype | Mar 4 | App window UI prototype |
 | `stage1-ui-dual-mode-20260304.html` | 1. UI prototype | Mar 4 | Dual-mode (Targets/Browse) UI prototype |
+| `stage1b-owl-refinement-failed-20260304.html` | 1. Owl Refinement | Mar 4 | 牛仔's failed owl improvements + weapon/terminal directions |
 | `stage2a-basic-concepts-x20-20260304.html` | 2. Exploration | Mar 4 | Basic icon concepts × 20 |
 | `stage2b-shield-variants-x20-20260304.html` | 2. Exploration | Mar 4 | Shield direction × 20 |
 | `stage2c-unique-concepts-x20-20260304.html` | 2. Exploration | Mar 4 | Wild/unique concepts × 20 |
