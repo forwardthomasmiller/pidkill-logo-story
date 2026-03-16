@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PIDKill Icon V2 — Bold</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0e0e12;
+    color: #e0e0e0;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 40px 20px;
+    min-height: 100vh;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 6px;
+    letter-spacing: 2px;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 11px;
+    color: #555;
+    margin-bottom: 50px;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 50px 0 30px;
+  }
+
+  /* ============================== */
+  /*  ICON CONTAINER                */
+  /* ============================== */
+  .icon {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: radial-gradient(circle at 50% 38%, #1a1a2e 0%, #0f0f18 45%, #08080c 100%);
+    box-shadow:
+      0 0 0 1px rgba(255,45,45,0.12),
+      0 6px 24px rgba(0,0,0,0.7),
+      inset 0 1px 0 rgba(255,255,255,0.04);
+  }
+
+  .icon.s512 { width: 512px; height: 512px; border-radius: 112px; }
+  .icon.s256 { width: 256px; height: 256px; border-radius: 56px; }
+  .icon.s128 { width: 128px; height: 128px; border-radius: 28px; }
+  .icon.s64  { width: 64px;  height: 64px;  border-radius: 14px; }
+  .icon.s32  { width: 32px;  height: 32px;  border-radius: 7px; }
+
+  /* ===== GRID ===== */
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,45,45,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,45,45,0.035) 1px, transparent 1px);
+    opacity: 0.6;
+  }
+
+  .s512 .grid-overlay { background-size: 24px 24px; }
+  .s256 .grid-overlay { background-size: 16px 16px; }
+  .s128 .grid-overlay { background-size: 10px 10px; }
+  .s64  .grid-overlay { background-size: 8px 8px; }
+
+  /* ===== AMBIENT GLOW ===== */
+  .ambient {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    background: radial-gradient(circle, rgba(255,45,45,0.07) 0%, transparent 70%);
+    z-index: 1;
+  }
+
+  /* ===== MAIN RING — 2x thicker ===== */
+  .ring-main {
+    position: absolute;
+    width: 72%;
+    height: 72%;
+    border-radius: 50%;
+    z-index: 5;
+  }
+
+  .s512 .ring-main { border: 16px solid rgba(255,45,45,0.5); box-shadow: 0 0 35px rgba(255,45,45,0.18), inset 0 0 35px rgba(255,45,45,0.1); }
+  .s256 .ring-main { border: 8px solid rgba(255,45,45,0.5); box-shadow: 0 0 28px rgba(255,45,45,0.18), inset 0 0 28px rgba(255,45,45,0.1); }
+  .s128 .ring-main { border: 4px solid rgba(255,45,45,0.5); box-shadow: 0 0 20px rgba(255,45,45,0.15), inset 0 0 20px rgba(255,45,45,0.08); }
+  .s64  .ring-main { border: 2px solid rgba(255,45,45,0.55); box-shadow: 0 0 12px rgba(255,45,45,0.15); }
+  .s32  .ring-main { border: 1px solid rgba(255,45,45,0.55); }
+
+  /* ===== INNER RING — 2x thicker ===== */
+  .ring-inner {
+    position: absolute;
+    width: 48%;
+    height: 48%;
+    border-radius: 50%;
+    z-index: 5;
+  }
+
+  .s512 .ring-inner { border: 16px solid rgba(255,45,45,0.22); }
+  .s256 .ring-inner { border: 8px solid rgba(255,45,45,0.22); }
+  .s128 .ring-inner { border: 4px solid rgba(255,45,45,0.18); }
+
+  /* ===== CROSSHAIR LINES ===== */
+  .ch-line {
+    position: absolute;
+    z-index: 4;
+  }
+
+  .ch-h {
+    height: 3px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255,45,45,0.3) 10%,
+      rgba(255,45,45,0.12) 36%,
+      transparent 40%,
+      transparent 60%,
+      rgba(255,45,45,0.12) 64%,
+      rgba(255,45,45,0.3) 90%,
+      transparent 100%
+    );
+  }
+
+  .ch-v {
+    width: 3px;
+    background: linear-gradient(180deg,
+      transparent 0%,
+      rgba(255,45,45,0.3) 10%,
+      rgba(255,45,45,0.12) 36%,
+      transparent 40%,
+      transparent 60%,
+      rgba(255,45,45,0.12) 64%,
+      rgba(255,45,45,0.3) 90%,
+      transparent 100%
+    );
+  }
+
+  .s512 .ch-h { width: 88%; height: 16px; }
+  .s512 .ch-v { height: 88%; width: 16px; }
+  .s256 .ch-h { width: 86%; height: 8px; }
+  .s256 .ch-v { height: 86%; width: 8px; }
+  .s128 .ch-h { width: 84%; height: 4px; }
+  .s128 .ch-v { height: 84%; width: 4px; }
+  .s64  .ch-h { width: 82%; height: 2px; }
+  .s64  .ch-v { height: 82%; width: 2px; }
+
+  /* ===== NOTCH TICKS ===== */
+  .notch {
+    position: absolute;
+    z-index: 6;
+  }
+
+  .notch-t { left: 50%; transform: translateX(-50%); }
+  .notch-b { left: 50%; transform: translateX(-50%); }
+  .notch-l { top: 50%; transform: translateY(-50%); }
+  .notch-r { top: 50%; transform: translateY(-50%); }
+
+  .s512 .notch-t { width: 16px; height: 11%; top: 2%; background: rgba(255,45,45,0.45); }
+  .s512 .notch-b { width: 16px; height: 11%; bottom: 2%; background: rgba(255,45,45,0.45); }
+  .s512 .notch-l { width: 11%; height: 16px; left: 2%; background: rgba(255,45,45,0.45); }
+  .s512 .notch-r { width: 11%; height: 16px; right: 2%; background: rgba(255,45,45,0.45); }
+
+  .s256 .notch-t { width: 8px; height: 11%; top: 3%; background: rgba(255,45,45,0.45); }
+  .s256 .notch-b { width: 8px; height: 11%; bottom: 3%; background: rgba(255,45,45,0.45); }
+  .s256 .notch-l { width: 11%; height: 8px; left: 3%; background: rgba(255,45,45,0.45); }
+  .s256 .notch-r { width: 11%; height: 8px; right: 3%; background: rgba(255,45,45,0.45); }
+
+  .s128 .notch-t { width: 4px; height: 10%; top: 4%; background: rgba(255,45,45,0.45); }
+  .s128 .notch-b { width: 4px; height: 10%; bottom: 4%; background: rgba(255,45,45,0.45); }
+  .s128 .notch-l { width: 10%; height: 4px; left: 4%; background: rgba(255,45,45,0.45); }
+  .s128 .notch-r { width: 10%; height: 4px; right: 4%; background: rgba(255,45,45,0.45); }
+
+  .s64 .notch-t { width: 2px; height: 10%; top: 4%; background: rgba(255,45,45,0.45); }
+  .s64 .notch-b { width: 2px; height: 10%; bottom: 4%; background: rgba(255,45,45,0.45); }
+  .s64 .notch-l { width: 10%; height: 2px; left: 4%; background: rgba(255,45,45,0.45); }
+  .s64 .notch-r { width: 10%; height: 2px; right: 4%; background: rgba(255,45,45,0.45); }
+
+  /* ===== PID TEXT — larger + bolder ===== */
+  .pid {
+    position: relative;
+    z-index: 10;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.04em;
+  }
+
+  .s512 .pid { font-size: 170px; }
+  .s256 .pid { font-size: 88px; }
+  .s128 .pid { font-size: 44px; }
+  .s64  .pid { font-size: 22px; }
+  .s32  .pid { font-size: 12px; }
+
+  /* Chromatic aberration */
+  .pid::before {
+    content: 'PID';
+    position: absolute;
+    z-index: -1;
+  }
+
+  .pid::after {
+    content: 'PID';
+    position: absolute;
+    z-index: -1;
+  }
+
+  .s512 .pid::before { top: -2.5px; left: -4px; color: rgba(255, 20, 20, 0.6); }
+  .s512 .pid::after  { top: 2.5px;  left: 4px;  color: rgba(0, 210, 255, 0.35); }
+
+  .s256 .pid::before { top: -1.5px; left: -2.5px; color: rgba(255, 20, 20, 0.6); }
+  .s256 .pid::after  { top: 1.5px;  left: 2.5px;  color: rgba(0, 210, 255, 0.35); }
+
+  .s128 .pid::before { top: -1px; left: -2px; color: rgba(255, 20, 20, 0.6); }
+  .s128 .pid::after  { top: 1px;  left: 2px;  color: rgba(0, 210, 255, 0.35); }
+
+  .s64 .pid::before { top: -0.5px; left: -1px; color: rgba(255, 20, 20, 0.6); }
+  .s64 .pid::after  { top: 0.5px;  left: 1px;  color: rgba(0, 210, 255, 0.35); }
+
+  .s32 .pid::before { top: 0; left: -0.5px; color: rgba(255, 20, 20, 0.5); }
+  .s32 .pid::after  { top: 0; left: 0.5px;  color: rgba(0, 210, 255, 0.3); }
+
+  /* ===== STRIKE LINE — 2x thicker ===== */
+  .strike {
+    position: absolute;
+    z-index: 20;
+    transform: rotate(-15deg);
+    border-radius: 3px;
+  }
+
+  .s512 .strike {
+    width: 62%;
+    height: 24px;
+    background: linear-gradient(90deg, transparent 0%, #ff2d2d 12%, #ff4040 50%, #ff2d2d 88%, transparent 100%);
+    box-shadow: 0 0 22px rgba(255,45,45,0.8), 0 0 50px rgba(255,45,45,0.3);
+  }
+
+  .s256 .strike {
+    width: 62%;
+    height: 12px;
+    background: linear-gradient(90deg, transparent 0%, #ff2d2d 12%, #ff4040 50%, #ff2d2d 88%, transparent 100%);
+    box-shadow: 0 0 16px rgba(255,45,45,0.8), 0 0 40px rgba(255,45,45,0.3);
+  }
+
+  .s128 .strike {
+    width: 62%;
+    height: 10px;
+    background: linear-gradient(90deg, transparent 0%, #ff2d2d 15%, #ff4040 50%, #ff2d2d 85%, transparent 100%);
+    box-shadow: 0 0 12px rgba(255,45,45,0.7), 0 0 30px rgba(255,45,45,0.25);
+  }
+
+  .s64 .strike {
+    width: 60%;
+    height: 8px;
+    background: #ff2d2d;
+    box-shadow: 0 0 10px rgba(255,45,45,0.7);
+  }
+
+  .s32 .strike {
+    width: 58%;
+    height: 6px;
+    background: #ff2d2d;
+    box-shadow: 0 0 6px rgba(255,45,45,0.6);
+  }
+
+  /* ===== LAYOUT ===== */
+  .main-showcase {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .sizes-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+  }
+
+  .size-item {
+    text-align: center;
+  }
+
+  .size-label {
+    font-size: 10px;
+    color: #444;
+    margin-top: 8px;
+  }
+
+</style>
+</head>
+<body>
+
+<h1>PIDKILL ICON V2 — BOLD</h1>
+<p class="subtitle">Ring 2x / Strike 2x / PID larger+bolder</p>
+
+<!-- ===== HERO SIZE ===== -->
+<div class="main-showcase">
+  <div class="icon s512">
+    <div class="grid-overlay"></div>
+    <div class="ambient"></div>
+    <div class="ring-main"></div>
+    <div class="ring-inner"></div>
+    <div class="ch-line ch-h"></div>
+    <div class="ch-line ch-v"></div>
+    <div class="notch notch-t"></div>
+    <div class="notch notch-b"></div>
+    <div class="notch notch-l"></div>
+    <div class="notch notch-r"></div>
+    <span class="pid">PID</span>
+    <div class="strike"></div>
+  </div>
+</div>
+
+<!-- ===== ALL SIZES ===== -->
+<div class="section-title">All Sizes</div>
+<div class="sizes-row">
+  <div class="size-item">
+    <div class="icon s256">
+      <div class="grid-overlay"></div>
+      <div class="ambient"></div>
+      <div class="ring-main"></div>
+      <div class="ring-inner"></div>
+      <div class="ch-line ch-h"></div>
+      <div class="ch-line ch-v"></div>
+      <div class="notch notch-t"></div>
+      <div class="notch notch-b"></div>
+      <div class="notch notch-l"></div>
+      <div class="notch notch-r"></div>
+      <span class="pid">PID</span>
+      <div class="strike"></div>
+    </div>
+    <div class="size-label">256px</div>
+  </div>
+
+  <div class="size-item">
+    <div class="icon s128">
+      <div class="grid-overlay"></div>
+      <div class="ambient"></div>
+      <div class="ring-main"></div>
+      <div class="ring-inner"></div>
+      <div class="ch-line ch-h"></div>
+      <div class="ch-line ch-v"></div>
+      <div class="notch notch-t"></div>
+      <div class="notch notch-b"></div>
+      <div class="notch notch-l"></div>
+      <div class="notch notch-r"></div>
+      <span class="pid">PID</span>
+      <div class="strike"></div>
+    </div>
+    <div class="size-label">128px</div>
+  </div>
+
+  <div class="size-item">
+    <div class="icon s64">
+      <div class="grid-overlay"></div>
+      <div class="ambient"></div>
+      <div class="ring-main"></div>
+      <div class="ch-line ch-h"></div>
+      <div class="ch-line ch-v"></div>
+      <div class="notch notch-t"></div>
+      <div class="notch notch-b"></div>
+      <div class="notch notch-l"></div>
+      <div class="notch notch-r"></div>
+      <span class="pid">PID</span>
+      <div class="strike"></div>
+    </div>
+    <div class="size-label">64px</div>
+  </div>
+
+  <div class="size-item">
+    <div class="icon s32">
+      <div class="ring-main"></div>
+      <span class="pid">PID</span>
+      <div class="strike"></div>
+    </div>
+    <div class="size-label">32px</div>
+  </div>
+</div>
+
+</body>
+</html>

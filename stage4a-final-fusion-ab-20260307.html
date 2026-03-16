@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PIDKill Icon — Final Refinement</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0e0e12;
+    color: #e0e0e0;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 40px 20px;
+    min-height: 100vh;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 6px;
+    letter-spacing: 2px;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 11px;
+    color: #555;
+    margin-bottom: 50px;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 50px 0 30px;
+  }
+
+  /* ============================== */
+  /*  ICON CONTAINER                */
+  /* ============================== */
+  .icon {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: radial-gradient(circle at 50% 38%, #1a1a2e 0%, #0f0f18 45%, #08080c 100%);
+    box-shadow:
+      0 0 0 1px rgba(255,45,45,0.12),
+      0 6px 24px rgba(0,0,0,0.7),
+      inset 0 1px 0 rgba(255,255,255,0.04);
+  }
+
+  .icon.s512 { width: 512px; height: 512px; border-radius: 112px; }
+  .icon.s256 { width: 256px; height: 256px; border-radius: 56px; }
+  .icon.s128 { width: 128px; height: 128px; border-radius: 28px; }
+  .icon.s64  { width: 64px;  height: 64px;  border-radius: 14px; }
+  .icon.s32  { width: 32px;  height: 32px;  border-radius: 7px; }
+
+  /* ===== GRID ===== */
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,45,45,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,45,45,0.035) 1px, transparent 1px);
+    opacity: 0.6;
+  }
+
+  .s512 .grid-overlay { background-size: 24px 24px; }
+  .s256 .grid-overlay { background-size: 16px 16px; }
+  .s128 .grid-overlay { background-size: 10px 10px; }
+  .s64  .grid-overlay { background-size: 8px 8px; }
+
+  /* ===== AMBIENT GLOW ===== */
+  .ambient {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    background: radial-gradient(circle, rgba(255,45,45,0.07) 0%, transparent 70%);
+    z-index: 1;
+  }
+
+  /* ===== MAIN RING (B-style thick) ===== */
+  .ring-main {
+    position: absolute;
+    width: 72%;
+    height: 72%;
+    border-radius: 50%;
+    z-index: 5;
+  }
+
+  .s512 .ring-main { border: 3px solid rgba(255,45,45,0.45); box-shadow: 0 0 25px rgba(255,45,45,0.12), inset 0 0 25px rgba(255,45,45,0.06); }
+  .s256 .ring-main { border: 2.5px solid rgba(255,45,45,0.45); box-shadow: 0 0 20px rgba(255,45,45,0.12), inset 0 0 20px rgba(255,45,45,0.06); }
+  .s128 .ring-main { border: 2px solid rgba(255,45,45,0.45); box-shadow: 0 0 14px rgba(255,45,45,0.1), inset 0 0 14px rgba(255,45,45,0.05); }
+  .s64  .ring-main { border: 1.5px solid rgba(255,45,45,0.5); box-shadow: 0 0 8px rgba(255,45,45,0.1); }
+  .s32  .ring-main { border: 1px solid rgba(255,45,45,0.5); }
+
+  /* ===== INNER RING (subtle) ===== */
+  .ring-inner {
+    position: absolute;
+    width: 48%;
+    height: 48%;
+    border-radius: 50%;
+    z-index: 5;
+  }
+
+  .s512 .ring-inner { border: 1.5px solid rgba(255,45,45,0.18); }
+  .s256 .ring-inner { border: 1px solid rgba(255,45,45,0.18); }
+  .s128 .ring-inner { border: 1px solid rgba(255,45,45,0.15); }
+
+  /* ===== CROSSHAIR LINES ===== */
+  .ch-line {
+    position: absolute;
+    z-index: 4;
+  }
+
+  .ch-h {
+    height: 1px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(255,45,45,0.3) 10%,
+      rgba(255,45,45,0.12) 36%,
+      transparent 40%,
+      transparent 60%,
+      rgba(255,45,45,0.12) 64%,
+      rgba(255,45,45,0.3) 90%,
+      transparent 100%
+    );
+  }
+
+  .ch-v {
+    width: 1px;
+    background: linear-gradient(180deg, 
+      transparent 0%, 
+      rgba(255,45,45,0.3) 10%,
+      rgba(255,45,45,0.12) 36%,
+      transparent 40%,
+      transparent 60%,
+      rgba(255,45,45,0.12) 64%,
+      rgba(255,45,45,0.3) 90%,
+      transparent 100%
+    );
+  }
+
+  .s512 .ch-h { width: 88%; }
+  .s512 .ch-v { height: 88%; }
+  .s256 .ch-h { width: 86%; }
+  .s256 .ch-v { height: 86%; }
+  .s128 .ch-h { width: 84%; }
+  .s128 .ch-v { height: 84%; }
+  .s64  .ch-h { width: 82%; }
+  .s64  .ch-v { height: 82%; }
+
+  /* ===== NOTCH TICKS (B-style) ===== */
+  .notch {
+    position: absolute;
+    z-index: 6;
+  }
+
+  .notch-t { left: 50%; transform: translateX(-50%); }
+  .notch-b { left: 50%; transform: translateX(-50%); }
+  .notch-l { top: 50%; transform: translateY(-50%); }
+  .notch-r { top: 50%; transform: translateY(-50%); }
+
+  .s512 .notch-t { width: 2px; height: 11%; top: 2%; background: rgba(255,45,45,0.45); }
+  .s512 .notch-b { width: 2px; height: 11%; bottom: 2%; background: rgba(255,45,45,0.45); }
+  .s512 .notch-l { width: 11%; height: 2px; left: 2%; background: rgba(255,45,45,0.45); }
+  .s512 .notch-r { width: 11%; height: 2px; right: 2%; background: rgba(255,45,45,0.45); }
+
+  .s256 .notch-t { width: 2px; height: 11%; top: 3%; background: rgba(255,45,45,0.45); }
+  .s256 .notch-b { width: 2px; height: 11%; bottom: 3%; background: rgba(255,45,45,0.45); }
+  .s256 .notch-l { width: 11%; height: 2px; left: 3%; background: rgba(255,45,45,0.45); }
+  .s256 .notch-r { width: 11%; height: 2px; right: 3%; background: rgba(255,45,45,0.45); }
+
+  .s128 .notch-t { width: 1.5px; height: 10%; top: 4%; background: rgba(255,45,45,0.4); }
+  .s128 .notch-b { width: 1.5px; height: 10%; bottom: 4%; background: rgba(255,45,45,0.4); }
+  .s128 .notch-l { width: 10%; height: 1.5px; left: 4%; background: rgba(255,45,45,0.4); }
+  .s128 .notch-r { width: 10%; height: 1.5px; right: 4%; background: rgba(255,45,45,0.4); }
+
+  .s64 .notch-t { width: 1.5px; height: 10%; top: 4%; background: rgba(255,45,45,0.45); }
+  .s64 .notch-b { width: 1.5px; height: 10%; bottom: 4%; background: rgba(255,45,45,0.45); }
+  .s64 .notch-l { width: 10%; height: 1.5px; left: 4%; background: rgba(255,45,45,0.45); }
+  .s64 .notch-r { width: 10%; height: 1.5px; right: 4%; background: rgba(255,45,45,0.45); }
+
+  /* ===== PID TEXT ===== */
+  .pid {
+    position: relative;
+    z-index: 10;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.04em;
+  }
+
+  .s512 .pid { font-size: 140px; }
+  .s256 .pid { font-size: 72px; }
+  .s128 .pid { font-size: 36px; }
+  .s64  .pid { font-size: 18px; }
+  .s32  .pid { font-size: 10px; }
+
+  /* Chromatic aberration */
+  .pid::before {
+    content: 'PID';
+    position: absolute;
+    z-index: -1;
+  }
+
+  .pid::after {
+    content: 'PID';
+    position: absolute;
+    z-index: -1;
+  }
+
+  .s512 .pid::before { top: -2px; left: -3.5px; color: rgba(255, 20, 20, 0.6); }
+  .s512 .pid::after  { top: 2px;  left: 3.5px;  color: rgba(0, 210, 255, 0.35); }
+
+  .s256 .pid::before { top: -1px; left: -2px; color: rgba(255, 20, 20, 0.6); }
+  .s256 .pid::after  { top: 1px;  left: 2px;  color: rgba(0, 210, 255, 0.35); }
+
+  .s128 .pid::before { top: -0.8px; left: -1.5px; color: rgba(255, 20, 20, 0.6); }
+  .s128 .pid::after  { top: 0.8px;  left: 1.5px;  color: rgba(0, 210, 255, 0.35); }
+
+  .s64 .pid::before { top: -0.5px; left: -1px; color: rgba(255, 20, 20, 0.6); }
+  .s64 .pid::after  { top: 0.5px;  left: 1px;  color: rgba(0, 210, 255, 0.35); }
+
+  .s32 .pid::before { top: 0; left: -0.5px; color: rgba(255, 20, 20, 0.5); }
+  .s32 .pid::after  { top: 0; left: 0.5px;  color: rgba(0, 210, 255, 0.3); }
+
+  /* ===== STRIKE LINE ===== */
+  .strike {
+    position: absolute;
+    z-index: 20;
+    transform: rotate(-15deg);
+    border-radius: 2px;
+  }
+
+  .s512 .strike {
+    width: 62%;
+    height: 5px;
+    background: linear-gradient(90deg, transparent 0%, #ff2d2d 12%, #ff4040 50%, #ff2d2d 88%, transparent 100%);
+    box-shadow: 0 0 14px rgba(255,45,45,0.6), 0 0 35px rgba(255,45,45,0.2);
+  }
+
+  .s256 .strike {
+    width: 62%;
+    height: 3.5px;
+    background: linear-gradient(90deg, transparent 0%, #ff2d2d 12%, #ff4040 50%, #ff2d2d 88%, transparent 100%);
+    box-shadow: 0 0 10px rgba(255,45,45,0.6), 0 0 28px rgba(255,45,45,0.2);
+  }
+
+  .s128 .strike {
+    width: 62%;
+    height: 2.5px;
+    background: linear-gradient(90deg, transparent 0%, #ff2d2d 15%, #ff4040 50%, #ff2d2d 85%, transparent 100%);
+    box-shadow: 0 0 8px rgba(255,45,45,0.5), 0 0 20px rgba(255,45,45,0.15);
+  }
+
+  .s64 .strike {
+    width: 60%;
+    height: 2px;
+    background: #ff2d2d;
+    box-shadow: 0 0 6px rgba(255,45,45,0.5);
+  }
+
+  .s32 .strike {
+    width: 58%;
+    height: 1.5px;
+    background: #ff2d2d;
+    box-shadow: 0 0 4px rgba(255,45,45,0.4);
+  }
+
+  /* ===== LAYOUT ===== */
+  .main-showcase {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .sizes-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+  }
+
+  .size-item {
+    text-align: center;
+  }
+
+  .size-label {
+    font-size: 10px;
+    color: #444;
+    margin-top: 8px;
+  }
+
+  /* ===== DOCK SIMULATION ===== */
+  .dock-section {
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .mock-dock {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 18px;
+    padding: 8px 20px 7px;
+    border: 1px solid rgba(255,255,255,0.04);
+    margin: 0 auto;
+    width: fit-content;
+  }
+
+  .dock-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 11px;
+    position: relative;
+  }
+
+  .dock-icon.has-dot::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.45);
+  }
+
+  .dock-pidkill {
+    width: 48px;
+    height: 48px;
+    border-radius: 11px;
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: radial-gradient(circle at 50% 38%, #1a1a2e 0%, #0f0f18 45%, #08080c 100%);
+    box-shadow: 0 0 0 1px rgba(255,45,45,0.12);
+  }
+
+  .dock-pidkill::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.45);
+  }
+
+  .dock-pidkill .d-ring {
+    position: absolute;
+    width: 72%;
+    height: 72%;
+    border: 1.5px solid rgba(255,45,45,0.5);
+    border-radius: 50%;
+  }
+
+  .dock-pidkill .d-notch {
+    position: absolute;
+    background: rgba(255,45,45,0.5);
+  }
+  .dock-pidkill .d-nt { width: 1.5px; height: 10%; top: 4%; left: 50%; transform: translateX(-50%); }
+  .dock-pidkill .d-nb { width: 1.5px; height: 10%; bottom: 4%; left: 50%; transform: translateX(-50%); }
+  .dock-pidkill .d-nl { width: 10%; height: 1.5px; left: 4%; top: 50%; transform: translateY(-50%); }
+  .dock-pidkill .d-nr { width: 10%; height: 1.5px; right: 4%; top: 50%; transform: translateY(-50%); }
+
+  .dock-pidkill .d-pid {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    position: relative;
+    z-index: 10;
+  }
+
+  .dock-pidkill .d-pid::before {
+    content: 'PID';
+    position: absolute;
+    top: -0.5px;
+    left: -1px;
+    color: rgba(255, 20, 20, 0.55);
+    z-index: -1;
+  }
+
+  .dock-pidkill .d-pid::after {
+    content: 'PID';
+    position: absolute;
+    top: 0.5px;
+    left: 1px;
+    color: rgba(0, 210, 255, 0.3);
+    z-index: -1;
+  }
+
+  .dock-pidkill .d-strike {
+    position: absolute;
+    width: 58%;
+    height: 1.5px;
+    background: #ff2d2d;
+    transform: rotate(-15deg);
+    box-shadow: 0 0 4px rgba(255,45,45,0.5);
+    z-index: 20;
+  }
+
+  /* ===== DARK vs LIGHT BG ===== */
+  .bg-test {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+
+  .bg-card {
+    padding: 30px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .bg-dark { background: #1a1a1a; }
+  .bg-medium { background: #2d2d35; }
+  .bg-light { background: #e8e8ec; }
+  .bg-white { background: #ffffff; }
+
+  .bg-label {
+    font-size: 9px;
+    color: #777;
+    margin-top: 4px;
+  }
+
+  .bg-light .bg-label,
+  .bg-white .bg-label { color: #999; }
+
+</style>
+</head>
+<body>
+
+<h1>PIDKILL ICON · A + B FUSION</h1>
+<p class="subtitle">A的深度氛围 + B的粗线框 · by 牛仔宝宝 🤠</p>
+
+<!-- ===== HERO SIZE ===== -->
+<div class="main-showcase">
+  <div class="icon s512">
+    <div class="grid-overlay"></div>
+    <div class="ambient"></div>
+    <div class="ring-main"></div>
+    <div class="ring-inner"></div>
+    <div class="ch-line ch-h"></div>
+    <div class="ch-line ch-v"></div>
+    <div class="notch notch-t"></div>
+    <div class="notch notch-b"></div>
+    <div class="notch notch-l"></div>
+    <div class="notch notch-r"></div>
+    <span class="pid">PID</span>
+    <div class="strike"></div>
+  </div>
+</div>
+
+<!-- ===== ALL SIZES ===== -->
+<div class="section-title">All Sizes</div>
+<div class="sizes-row">
+  <div class="size-item">
+    <div class="icon s256">
+      <div class="grid-overlay"></div>
+      <div class="ambient"></div>
+      <div class="ring-main"></div>
+      <div class="ring-inner"></div>
+      <div class="ch-line ch-h"></div>
+      <div class="ch-line ch-v"></div>
+      <div class="notch notch-t"></div>
+      <div class="notch notch-b"></div>
+      <div class="notch notch-l"></div>
+      <div class="notch notch-r"></div>
+      <span class="pid">PID</span>
+      <div class="strike"></div>
+    </div>
+    <div class="size-label">256px</div>
+  </div>
+
+  <div class="size-item">
+    <div class="icon s128">
+      <div class="grid-overlay"></div>
+      <div class="ambient"></div>
+      <div class="ring-main"></div>
+      <div class="ring-inner"></div>
+      <div class="ch-line ch-h"></div>
+      <div class="ch-line ch-v"></div>
+      <div class="notch notch-t"></div>
+      <div class="notch notch-b"></div>
+      <div class="notch notch-l"></div>
+      <div class="notch notch-r"></div>
+      <span class="pid">PID</span>
+      <div class="strike"></div>
+    </div>
+    <div class="size-label">128px</div>
+  </div>
+
+  <div class="size-item">
+    <div class="icon s64">
+      <div class="grid-overlay"></div>
+      <div class="ambient"></div>
+      <div class="ring-main"></div>
+      <div class="ch-line ch-h"></div>
+      <div class="ch-line ch-v"></div>
+      <div class="notch notch-t"></div>
+      <div class="notch notch-b"></div>
+      <div class="notch notch-l"></div>
+      <div class="notch notch-r"></div>
+      <span class="pid">PID</span>
+      <div class="strike"></div>
+    </div>
+    <div class="size-label">64px</div>
+  </div>
+
+  <div class="size-item">
+    <div class="icon s32">
+      <div class="ring-main"></div>
+      <span class="pid">PID</span>
+      <div class="strike"></div>
+    </div>
+    <div class="size-label">32px</div>
+  </div>
+</div>
+
+<!-- ===== DOCK ===== -->
+<div class="dock-section">
+  <div class="section-title">In the Dock</div>
+  <div class="mock-dock">
+    <div class="dock-icon has-dot" style="background: linear-gradient(145deg, #147ce5, #0b5fbd);"></div>
+    <div class="dock-icon" style="background: linear-gradient(145deg, #1db954, #148a3e);"></div>
+    <div class="dock-icon has-dot" style="background: linear-gradient(145deg, #333, #111);"></div>
+    <div class="dock-pidkill">
+      <div class="d-ring"></div>
+      <div class="d-notch d-nt"></div>
+      <div class="d-notch d-nb"></div>
+      <div class="d-notch d-nl"></div>
+      <div class="d-notch d-nr"></div>
+      <span class="d-pid">PID</span>
+      <div class="d-strike"></div>
+    </div>
+    <div class="dock-icon has-dot" style="background: linear-gradient(145deg, #ff6b35, #cc4400);"></div>
+    <div class="dock-icon" style="background: linear-gradient(145deg, #8b5cf6, #6d28d9);"></div>
+    <div class="dock-icon has-dot" style="background: linear-gradient(145deg, #e44, #b22);"></div>
+  </div>
+</div>
+
+<!-- ===== BACKGROUND TEST ===== -->
+<div class="section-title" style="margin-top: 60px;">Background Test</div>
+<div class="bg-test">
+  <div class="bg-card bg-dark">
+    <div class="icon s128">
+      <div class="grid-overlay"></div>
+      <div class="ambient"></div>
+      <div class="ring-main"></div>
+      <div class="ring-inner"></div>
+      <div class="ch-line ch-h"></div>
+      <div class="ch-line ch-v"></div>
+      <div class="notch notch-t"></div>
+      <div class="notch notch-b"></div>
+      <div class="notch notch-l"></div>
+      <div class="notch notch-r"></div>
+      <span class="pid">PID</span>
+      <div class="strike"></div>
+    </div>
+    <div class="bg-label">Dark</div>
+  </div>
+
+  <div class="bg-card bg-medium">
+    <div class="icon s128">
+      <div class="grid-overlay"></div>
+      <div class="ambient"></div>
+      <div class="ring-main"></div>
+      <div class="ring-inner"></div>
+      <div class="ch-line ch-h"></div>
+      <div class="ch-line ch-v"></div>
+      <div class="notch notch-t"></div>
+      <div class="notch notch-b"></div>
+      <div class="notch notch-l"></div>
+      <div class="notch notch-r"></div>
+      <span class="pid">PID</span>
+      <div class="strike"></div>
+    </div>
+    <div class="bg-label">Medium</div>
+  </div>
+
+  <div class="bg-card bg-light">
+    <div class="icon s128">
+      <div class="grid-overlay"></div>
+      <div class="ambient"></div>
+      <div class="ring-main"></div>
+      <div class="ring-inner"></div>
+      <div class="ch-line ch-h"></div>
+      <div class="ch-line ch-v"></div>
+      <div class="notch notch-t"></div>
+      <div class="notch notch-b"></div>
+      <div class="notch notch-l"></div>
+      <div class="notch notch-r"></div>
+      <span class="pid">PID</span>
+      <div class="strike"></div>
+    </div>
+    <div class="bg-label">Light</div>
+  </div>
+
+  <div class="bg-card bg-white">
+    <div class="icon s128">
+      <div class="grid-overlay"></div>
+      <div class="ambient"></div>
+      <div class="ring-main"></div>
+      <div class="ring-inner"></div>
+      <div class="ch-line ch-h"></div>
+      <div class="ch-line ch-v"></div>
+      <div class="notch notch-t"></div>
+      <div class="notch notch-b"></div>
+      <div class="notch notch-l"></div>
+      <div class="notch notch-r"></div>
+      <span class="pid">PID</span>
+      <div class="strike"></div>
+    </div>
+    <div class="bg-label">White</div>
+  </div>
+</div>
+
+</body>
+</html>

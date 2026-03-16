@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProcessKiller - Dual Mode Prototype</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Helvetica Neue', sans-serif;
+    background: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #e0e0e0;
+  }
+
+  .window {
+    width: 520px;
+    background: #2a2a2a;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+
+  .titlebar {
+    height: 38px;
+    background: #252525;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    position: relative;
+  }
+  .traffic-lights { display: flex; gap: 8px; }
+  .traffic-lights span { width: 12px; height: 12px; border-radius: 50%; }
+  .tl-close { background: #ff5f57; }
+  .tl-min { background: #ffbd2e; }
+  .tl-max { background: #28c840; }
+  .titlebar-text {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    font-size: 13px; color: #fff; font-weight: 500;
+  }
+
+  .status-bar {
+    height: 44px; background: #252525;
+    display: flex; align-items: center; padding: 0 16px;
+    border-top: 1px solid #333;
+  }
+  .status-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #28c840; margin-right: 8px;
+  }
+  .status-dot.off { background: #555; }
+  .status-text { font-size: 12px; color: #888; flex: 1; }
+  .btn {
+    padding: 4px 16px; border-radius: 6px; border: none;
+    font-size: 12px; font-weight: 600; color: #fff; cursor: pointer;
+  }
+  .btn:hover { opacity: 0.85; }
+  .btn-green { background: #28c840; }
+  .btn-red { background: #ff5f57; }
+
+  .add-section {
+    height: 52px; display: flex; align-items: center;
+    padding: 0 16px; gap: 8px;
+  }
+  .input-wrap {
+    flex: 1; height: 34px; background: #1e1e1e;
+    border: 1px solid #444; border-radius: 8px;
+    display: flex; align-items: center; padding: 0 10px;
+  }
+  .input-wrap input {
+    width: 100%; background: none; border: none;
+    outline: none; color: #fff; font-size: 13px;
+  }
+  .input-wrap input::placeholder { color: #666; }
+  .badge-btn {
+    height: 34px; padding: 0 12px; border-radius: 8px;
+    border: 1px solid #f0a030; background: rgba(240,160,48,0.1);
+    color: #f0a030; font-size: 11px; font-weight: 500; cursor: pointer;
+  }
+  .add-btn {
+    height: 34px; padding: 0 16px; border-radius: 8px; border: none;
+    background: #0a84ff; color: #fff; font-size: 13px;
+    font-weight: 600; cursor: pointer;
+  }
+
+  .pane-header {
+    display: flex; align-items: center; padding: 8px 16px 4px;
+  }
+  .pane-title {
+    font-size: 11px; color: #666; font-weight: 600; letter-spacing: 0.5px;
+  }
+  .pane-header-right { margin-left: auto; display: flex; align-items: center; gap: 4px; }
+
+  .mode-tabs {
+    display: flex; background: #1e1e1e; border-radius: 6px; padding: 2px; gap: 2px;
+  }
+  .mode-tab {
+    padding: 3px 10px; font-size: 10px; font-weight: 500; color: #888;
+    border: none; background: none; border-radius: 4px; cursor: pointer;
+  }
+  .mode-tab.active { background: #0a84ff; color: #fff; }
+  .mode-tab:hover:not(.active) { color: #bbb; }
+
+  .mode-content {
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+  }
+  .process-list {
+    padding: 4px 8px; flex: 1; overflow-y: auto;
+  }
+  .process-list::-webkit-scrollbar { width: 6px; }
+  .process-list::-webkit-scrollbar-track { background: transparent; }
+  .process-list::-webkit-scrollbar-thumb { background: #444; border-radius: 3px; }
+
+  .target-item {
+    display: flex; align-items: center; padding: 6px 12px;
+    background: #1e1e1e; border-radius: 8px; margin-bottom: 4px; height: 40px;
+  }
+  .target-icon { font-size: 14px; margin-right: 6px; }
+  .target-name {
+    font-size: 13px; font-weight: 500; flex: 1;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .mode-badge {
+    font-size: 10px; font-weight: 500; padding: 2px 8px;
+    border-radius: 4px; margin-right: 8px;
+  }
+  .mode-badge.fuzzy { color: #f0a030; background: rgba(240,160,48,0.15); }
+  .mode-badge.exact { color: #0a84ff; background: rgba(10,132,255,0.15); }
+
+  .toggle {
+    width: 30px; height: 17px; background: #555; border-radius: 9px;
+    position: relative; cursor: pointer; margin-right: 8px;
+  }
+  .toggle.on { background: #28c840; }
+  .toggle::after {
+    content: ''; width: 13px; height: 13px; background: #fff;
+    border-radius: 50%; position: absolute; top: 2px; left: 2px;
+  }
+  .toggle.on::after { left: 15px; }
+
+  .delete-btn {
+    color: #666; font-size: 12px; cursor: pointer;
+    background: none; border: none; padding: 4px;
+  }
+  .delete-btn:hover { color: #ff5f57; }
+
+  .process-item {
+    display: flex; align-items: center; padding: 5px 12px;
+    background: #1e1e1e; border-radius: 8px; margin-bottom: 3px; height: 36px;
+  }
+  .process-item:hover { background: #262626; }
+  .origin-badge {
+    font-size: 9px; font-weight: 600; padding: 2px 6px;
+    border-radius: 4px; margin-right: 8px; min-width: 30px; text-align: center;
+  }
+  .origin-badge.sys { color: #888; background: rgba(136,136,136,0.2); }
+  .origin-badge.third { color: #0a84ff; background: rgba(10,132,255,0.15); }
+  .proc-name {
+    font-size: 12px; font-weight: 500; flex: 1;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .proc-mem {
+    font-size: 10px; font-family: 'SF Mono', Menlo, monospace;
+    color: #666; margin-right: 8px; min-width: 55px; text-align: right;
+  }
+  .proc-pid {
+    font-size: 10px; font-family: 'SF Mono', Menlo, monospace;
+    color: #555; margin-right: 8px; min-width: 50px;
+  }
+  .add-target-btn {
+    font-size: 16px; color: #555; cursor: pointer;
+    background: none; border: none; padding: 2px 6px;
+    border-radius: 4px; line-height: 1;
+  }
+  .add-target-btn:hover { color: #28c840; background: rgba(40,200,64,0.1); }
+  .add-target-btn.added { color: #28c840; }
+
+  .filter-bar {
+    display: flex; align-items: center; padding: 4px 16px 6px; gap: 6px;
+  }
+  .filter-tabs { display: flex; gap: 4px; }
+  .filter-tab {
+    padding: 3px 10px; font-size: 10px; font-weight: 500;
+    border-radius: 4px; border: none; cursor: pointer;
+  }
+  .filter-tab.all { background: #0a84ff; color: #fff; }
+  .filter-tab.sys-f { background: rgba(136,136,136,0.15); color: #888; }
+  .filter-tab.third-f { background: rgba(10,132,255,0.1); color: #0a84ff; }
+  .filter-tab:not(.active-filter) { opacity: 0.5; }
+  .filter-tab.active-filter { opacity: 1; }
+
+  .filter-search {
+    flex: 1; height: 24px; background: #1e1e1e;
+    border: 1px solid #333; border-radius: 5px;
+    padding: 0 8px; color: #ccc; font-size: 11px; outline: none;
+  }
+  .filter-search:focus { border-color: #0a84ff; }
+  .filter-search::placeholder { color: #555; }
+
+  .proc-count { font-size: 10px; color: #555; margin-left: auto; }
+
+  .divider { height: 1px; background: #333; margin: 0 8px; }
+
+  .log-header {
+    display: flex; align-items: center; padding: 10px 16px 6px;
+  }
+  .self-mem {
+    margin-left: auto; font-size: 10px;
+    font-family: 'SF Mono', Menlo, monospace;
+    color: #f0a030; font-weight: 500;
+  }
+  .clean-btn {
+    font-size: 10px; color: #0a84ff; background: none;
+    border: none; cursor: pointer; margin-left: 6px; font-weight: 500;
+  }
+
+  .log-list { padding: 0 8px 4px; max-height: 140px; overflow-y: auto; }
+  .log-item {
+    display: flex; align-items: center; padding: 4px 12px;
+    font-size: 12px; gap: 6px; height: 28px;
+  }
+  .log-time { font-family: 'SF Mono', Menlo, monospace; font-size: 11px; color: #666; }
+  .log-msg { color: #aaa; }
+  .log-name { color: #e0e0e0; font-weight: 500; }
+  .log-pid {
+    font-family: 'SF Mono', Menlo, monospace;
+    font-size: 11px; color: #666; margin-left: auto;
+  }
+
+  .footer {
+    height: 40px; border-top: 1px solid #333;
+    display: flex; align-items: center; padding: 0 16px; gap: 8px;
+  }
+  .footer-label { font-size: 11px; color: #666; }
+  .interval-btn {
+    padding: 2px 8px; font-size: 11px;
+    font-family: 'SF Mono', Menlo, monospace; font-weight: 500;
+    border-radius: 4px; border: none; cursor: pointer;
+    background: #1e1e1e; color: #888;
+  }
+  .interval-btn.active { background: #0a84ff; color: #fff; }
+  .footer-right { margin-left: auto; display: flex; gap: 12px; }
+  .footer-link { font-size: 11px; background: none; border: none; cursor: pointer; }
+  .footer-link.export { color: #28c840; }
+  .footer-link.clear { color: #0a84ff; }
+
+  .anno {
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+    background: rgba(10,132,255,0.15); color: #0a84ff;
+    padding: 8px 16px; border-radius: 8px; font-size: 12px;
+    display: flex; gap: 20px; align-items: center;
+  }
+  .anno span { display: flex; align-items: center; gap: 4px; }
+  .anno-key {
+    background: #0a84ff; color: #fff; padding: 2px 8px;
+    border-radius: 4px; font-size: 10px; font-weight: 600; cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="window" id="app">
+  <div class="titlebar">
+    <div class="traffic-lights">
+      <span class="tl-close"></span>
+      <span class="tl-min"></span>
+      <span class="tl-max"></span>
+    </div>
+    <div class="titlebar-text">ProcessKiller</div>
+  </div>
+
+  <div class="status-bar">
+    <div class="status-dot" id="statusDot"></div>
+    <span class="status-text" id="statusText">Monitoring - 3 tracked</span>
+    <button class="btn btn-red" id="toggleBtn" onclick="toggleMonitor()">Stop</button>
+  </div>
+
+  <div class="add-section">
+    <div class="input-wrap">
+      <input type="text" placeholder="Process name, e.g. mdworker_shared" id="processInput">
+    </div>
+    <button class="badge-btn">~Fuzzy</button>
+    <button class="add-btn">+ Add</button>
+  </div>
+
+  <div class="pane-header">
+    <span class="pane-title">TARGET PROCESSES</span>
+    <div class="pane-header-right">
+      <div class="mode-tabs">
+        <button class="mode-tab active" id="tabTargets" onclick="switchMode('targets')">Targets</button>
+        <button class="mode-tab" id="tabBrowse" onclick="switchMode('browse')">Browse All</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Targets mode -->
+  <div id="targetsMode" class="mode-content">
+    <div class="process-list">
+      <div class="target-item">
+        <span class="target-icon">&#9881;&#65039;</span>
+        <span class="target-name">mdworker_shared</span>
+        <span class="mode-badge fuzzy">~Fuzzy</span>
+        <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+        <button class="delete-btn">&#10005;</button>
+      </div>
+      <div class="target-item">
+        <span class="target-icon">&#9881;&#65039;</span>
+        <span class="target-name">com.apple.Safari.History</span>
+        <span class="mode-badge exact">=Exact</span>
+        <div class="toggle on" onclick="this.classList.toggle('on')"></div>
+        <button class="delete-btn">&#10005;</button>
+      </div>
+      <div class="target-item">
+        <span class="target-icon">&#9881;&#65039;</span>
+        <span class="target-name">Google Chrome Helper</span>
+        <span class="mode-badge fuzzy">~Fuzzy</span>
+        <div class="toggle" onclick="this.classList.toggle('on')"></div>
+        <button class="delete-btn">&#10005;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Browse mode -->
+  <div id="browseMode" class="mode-content" style="display:none;">
+    <div class="filter-bar">
+      <div class="filter-tabs">
+        <button class="filter-tab all active-filter" onclick="filterProcs('all', this)">ALL</button>
+        <button class="filter-tab sys-f" onclick="filterProcs('sys', this)">SYS</button>
+        <button class="filter-tab third-f" onclick="filterProcs('3rd', this)">3RD</button>
+      </div>
+      <input type="text" class="filter-search" placeholder="Search processes..." id="filterInput" oninput="filterByName()">
+      <span class="proc-count" id="procCount">47 processes</span>
+    </div>
+    <div class="process-list" id="browseList"></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="log-header">
+    <span class="pane-title">KILL LOG</span>
+    <span class="self-mem">24.6 MB</span>
+    <button class="clean-btn">Clean Memory</button>
+  </div>
+
+  <div class="log-list">
+    <div class="log-item">
+      <span class="log-time">14:32:08</span><span>&#9989;</span>
+      <span class="log-msg">Killed (12.3 MB)</span>
+      <span class="log-name">mdworker_shared</span>
+      <span class="log-pid">PID 12847</span>
+    </div>
+    <div class="log-item">
+      <span class="log-time">14:32:08</span><span>&#9989;</span>
+      <span class="log-msg">Killed (4.2 MB)</span>
+      <span class="log-name">mdworker_shared</span>
+      <span class="log-pid">PID 12831</span>
+    </div>
+    <div class="log-item">
+      <span class="log-time">14:31:55</span><span>&#9989;</span>
+      <span class="log-msg">Force killed (SIGKILL)</span>
+      <span class="log-name">Safari.History</span>
+      <span class="log-pid">PID 11902</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span class="footer-label">Scan every</span>
+    <button class="interval-btn">3s</button>
+    <button class="interval-btn active">5s</button>
+    <button class="interval-btn">10s</button>
+    <button class="interval-btn">30s</button>
+    <button class="interval-btn">60s</button>
+    <div class="footer-right">
+      <button class="footer-link export">Export Log</button>
+      <button class="footer-link clear">Clear Log</button>
+    </div>
+  </div>
+</div>
+
+<div class="anno">
+  <span><span class="anno-key" onclick="switchMode('targets')">Targets</span> Target mode</span>
+  <span><span class="anno-key" onclick="switchMode('browse')">Browse All</span> Browse all processes</span>
+</div>
+
+<script>
+const processes = [
+  { name: 'WindowServer', pid: 312, mem: '156.2 MB', origin: 'sys' },
+  { name: 'Finder', pid: 421, mem: '89.4 MB', origin: 'sys' },
+  { name: 'Dock', pid: 418, mem: '42.1 MB', origin: 'sys' },
+  { name: 'mds_stores', pid: 523, mem: '38.7 MB', origin: 'sys' },
+  { name: 'mdworker_shared', pid: 12847, mem: '12.3 MB', origin: 'sys' },
+  { name: 'mdworker_shared', pid: 12831, mem: '4.2 MB', origin: 'sys' },
+  { name: 'nsurlsessiond', pid: 687, mem: '8.1 MB', origin: 'sys' },
+  { name: 'cfprefsd', pid: 445, mem: '5.3 MB', origin: 'sys' },
+  { name: 'trustd', pid: 502, mem: '6.8 MB', origin: 'sys' },
+  { name: 'lsd', pid: 478, mem: '9.2 MB', origin: 'sys' },
+  { name: 'distnoted', pid: 456, mem: '2.1 MB', origin: 'sys' },
+  { name: 'sharingd', pid: 612, mem: '7.4 MB', origin: 'sys' },
+  { name: 'iconservicesagent', pid: 534, mem: '11.6 MB', origin: 'sys' },
+  { name: 'Safari.History', pid: 11902, mem: '22.4 MB', origin: 'sys' },
+  { name: 'Google Chrome', pid: 2341, mem: '312.8 MB', origin: '3rd' },
+  { name: 'Google Chrome Helper', pid: 2355, mem: '88.4 MB', origin: '3rd' },
+  { name: 'Google Chrome Helper', pid: 2367, mem: '64.2 MB', origin: '3rd' },
+  { name: 'Google Chrome Helper', pid: 2389, mem: '45.1 MB', origin: '3rd' },
+  { name: 'Slack', pid: 3102, mem: '198.3 MB', origin: '3rd' },
+  { name: 'Slack Helper', pid: 3115, mem: '72.4 MB', origin: '3rd' },
+  { name: 'Visual Studio Code', pid: 4521, mem: '245.6 MB', origin: '3rd' },
+  { name: 'Code Helper', pid: 4533, mem: '134.2 MB', origin: '3rd' },
+  { name: 'Code Helper', pid: 4545, mem: '98.7 MB', origin: '3rd' },
+  { name: 'iTerm2', pid: 1823, mem: '67.3 MB', origin: '3rd' },
+  { name: 'Raycast', pid: 1456, mem: '54.8 MB', origin: '3rd' },
+  { name: 'WeChat', pid: 5612, mem: '178.5 MB', origin: '3rd' },
+  { name: 'Notion', pid: 6234, mem: '156.2 MB', origin: '3rd' },
+  { name: 'Notion Helper', pid: 6248, mem: '42.3 MB', origin: '3rd' },
+  { name: 'ProcessKiller', pid: 8901, mem: '24.6 MB', origin: '3rd' },
+  { name: 'node', pid: 7821, mem: '82.4 MB', origin: '3rd' },
+  { name: 'brew', pid: 9102, mem: '12.1 MB', origin: '3rd' },
+];
+
+const targetNames = new Set(['mdworker_shared', 'com.apple.Safari.History', 'Google Chrome Helper']);
+let currentFilter = 'all';
+
+function createProcessItem(p) {
+  const item = document.createElement('div');
+  item.className = 'process-item';
+  item.dataset.origin = p.origin;
+
+  const badge = document.createElement('span');
+  badge.className = 'origin-badge ' + (p.origin === 'sys' ? 'sys' : 'third');
+  badge.textContent = p.origin === 'sys' ? 'SYS' : '3RD';
+
+  const name = document.createElement('span');
+  name.className = 'proc-name';
+  name.textContent = p.name;
+
+  const mem = document.createElement('span');
+  mem.className = 'proc-mem';
+  mem.textContent = p.mem;
+
+  const pid = document.createElement('span');
+  pid.className = 'proc-pid';
+  pid.textContent = 'PID ' + p.pid;
+
+  const addBtn = document.createElement('button');
+  addBtn.className = 'add-target-btn' + (targetNames.has(p.name) ? ' added' : '');
+  addBtn.textContent = targetNames.has(p.name) ? '\u2713' : '+';
+  addBtn.title = targetNames.has(p.name) ? 'Already in targets' : 'Add to targets';
+  addBtn.addEventListener('click', function() {
+    if (targetNames.has(p.name)) {
+      targetNames.delete(p.name);
+      addBtn.textContent = '+';
+      addBtn.classList.remove('added');
+    } else {
+      targetNames.add(p.name);
+      addBtn.textContent = '\u2713';
+      addBtn.classList.add('added');
+    }
+  });
+
+  item.appendChild(badge);
+  item.appendChild(name);
+  item.appendChild(mem);
+  item.appendChild(pid);
+  item.appendChild(addBtn);
+  return item;
+}
+
+function renderBrowseList(filter, search) {
+  const list = document.getElementById('browseList');
+  list.textContent = '';
+
+  let filtered = processes;
+  if (filter === 'sys') filtered = filtered.filter(function(p) { return p.origin === 'sys'; });
+  if (filter === '3rd') filtered = filtered.filter(function(p) { return p.origin === '3rd'; });
+  if (search) {
+    var q = search.toLowerCase();
+    filtered = filtered.filter(function(p) { return p.name.toLowerCase().indexOf(q) !== -1; });
+  }
+
+  document.getElementById('procCount').textContent = filtered.length + ' processes';
+
+  filtered.forEach(function(p) {
+    list.appendChild(createProcessItem(p));
+  });
+}
+
+function switchMode(mode) {
+  var targets = document.getElementById('targetsMode');
+  var browse = document.getElementById('browseMode');
+  var tabT = document.getElementById('tabTargets');
+  var tabB = document.getElementById('tabBrowse');
+
+  if (mode === 'targets') {
+    targets.style.display = '';
+    browse.style.display = 'none';
+    tabT.classList.add('active');
+    tabB.classList.remove('active');
+  } else {
+    targets.style.display = 'none';
+    browse.style.display = '';
+    tabT.classList.remove('active');
+    tabB.classList.add('active');
+    renderBrowseList(currentFilter, document.getElementById('filterInput').value);
+  }
+}
+
+function filterProcs(type, btn) {
+  currentFilter = type;
+  document.querySelectorAll('.filter-tab').forEach(function(t) { t.classList.remove('active-filter'); });
+  btn.classList.add('active-filter');
+  renderBrowseList(type, document.getElementById('filterInput').value);
+}
+
+function filterByName() {
+  renderBrowseList(currentFilter, document.getElementById('filterInput').value);
+}
+
+var monitoring = true;
+function toggleMonitor() {
+  monitoring = !monitoring;
+  var btn = document.getElementById('toggleBtn');
+  var dot = document.getElementById('statusDot');
+  var txt = document.getElementById('statusText');
+  if (monitoring) {
+    btn.textContent = 'Stop';
+    btn.className = 'btn btn-red';
+    dot.classList.remove('off');
+    txt.textContent = 'Monitoring - 3 tracked';
+  } else {
+    btn.textContent = 'Start';
+    btn.className = 'btn btn-green';
+    dot.classList.add('off');
+    txt.textContent = 'Stopped';
+  }
+}
+
+renderBrowseList('all', '');
+</script>
+
+</body>
+</html>

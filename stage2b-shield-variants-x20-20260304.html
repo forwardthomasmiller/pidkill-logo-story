@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ProcessKiller - Shield X Variants</title>
+<style>
+  body {
+    background: #111;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+    padding: 40px;
+    font-family: -apple-system, sans-serif;
+    color: #fff;
+  }
+  .icon-card { text-align: center; }
+  .icon-card p { margin-top: 8px; font-size: 11px; color: #666; max-width: 160px; }
+  svg { filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5)); }
+</style>
+</head>
+<body>
+
+<!-- 1: Original -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#1e1e1e"/>
+  <path d="M 128 52 L 192 84 L 192 144 Q 192 196 128 216 Q 64 196 64 144 L 64 84 Z" fill="none" stroke="#0a84ff" stroke-width="7"/>
+  <line x1="102" y1="110" x2="154" y2="162" stroke="#ff3b30" stroke-width="9" stroke-linecap="round"/>
+  <line x1="154" y1="110" x2="102" y2="162" stroke="#ff3b30" stroke-width="9" stroke-linecap="round"/>
+  </svg><p>1. Original</p>
+</div>
+
+<!-- 2: Filled shield -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#1e1e1e"/>
+  <path d="M 128 52 L 192 84 L 192 144 Q 192 196 128 216 Q 64 196 64 144 L 64 84 Z" fill="#0a84ff" opacity="0.15" stroke="#0a84ff" stroke-width="5"/>
+  <line x1="102" y1="110" x2="154" y2="162" stroke="#ff3b30" stroke-width="9" stroke-linecap="round"/>
+  <line x1="154" y1="110" x2="102" y2="162" stroke="#ff3b30" stroke-width="9" stroke-linecap="round"/>
+  </svg><p>2. Filled Shield</p>
+</div>
+
+<!-- 3: Gradient shield -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256"><defs>
+  <linearGradient id="sg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3b9fff"/><stop offset="100%" stop-color="#0a5aff"/></linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="58" fill="#1e1e1e"/>
+  <path d="M 128 52 L 192 84 L 192 144 Q 192 196 128 216 Q 64 196 64 144 L 64 84 Z" fill="none" stroke="url(#sg3)" stroke-width="7"/>
+  <line x1="102" y1="110" x2="154" y2="162" stroke="#ff3b30" stroke-width="9" stroke-linecap="round"/>
+  <line x1="154" y1="110" x2="102" y2="162" stroke="#ff3b30" stroke-width="9" stroke-linecap="round"/>
+  </svg><p>3. Gradient Blue</p>
+</div>
+
+<!-- 4: Thicker X, rounder -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#1e1e1e"/>
+  <path d="M 128 52 L 192 84 L 192 144 Q 192 196 128 216 Q 64 196 64 144 L 64 84 Z" fill="none" stroke="#0a84ff" stroke-width="6"/>
+  <line x1="100" y1="108" x2="156" y2="164" stroke="#ff3b30" stroke-width="14" stroke-linecap="round"/>
+  <line x1="156" y1="108" x2="100" y2="164" stroke="#ff3b30" stroke-width="14" stroke-linecap="round"/>
+  </svg><p>4. Thick X</p>
+</div>
+
+<!-- 5: Red shield + white X -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#1e1e1e"/>
+  <path d="M 128 52 L 192 84 L 192 144 Q 192 196 128 216 Q 64 196 64 144 L 64 84 Z" fill="none" stroke="#ff3b30" stroke-width="7"/>
+  <line x1="102" y1="110" x2="154" y2="162" stroke="#ffffff" stroke-width="9" stroke-linecap="round"/>
+  <line x1="154" y1="110" x2="102" y2="162" stroke="#ffffff" stroke-width="9" stroke-linecap="round"/>
+  </svg><p>5. Red Shield + White X</p>
+</div>
+
+<!-- 6: Green shield -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#1e1e1e"/>
+  <path d="M 128 52 L 192 84 L 192 144 Q 192 196 128 216 Q 64 196 64 144 L 64 84 Z" fill="none" stroke="#28c840" stroke-width="7"/>
+  <line x1="102" y1="110" x2="154" y2="162" stroke="#ff3b30" stroke-width="9" stroke-linecap="round"/>
+  <line x1="154" y1="110" x2="102" y2="162" stroke="#ff3b30" stroke-width="9" stroke-linecap="round"/>
+  </svg><p>6. Green Shield</p>
+</div>
+
+<!-- 7: Double border -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#1e1e1e"/>
+  <path d="M 128 44 L 198 78 L 198 148 Q 198 202 128 224 Q 58 202 58 148 L 58 78 Z" fill="none" stroke="#0a84ff" stroke-width="3" opacity="0.4"/>
+  <path d="M 128 58 L 186 88 L 186 142 Q 186 190 128 208 Q 70 190 70 142 L 70 88 Z" fill="none" stroke="#0a84ff" stroke-width="6"/>
+  <line x1="102" y1="112" x2="154" y2="164" stroke="#ff3b30" stroke-width="9" stroke-linecap="round"/>
+  <line x1="154" y1="112" x2="102" y2="164" stroke="#ff3b30" stroke-width="9" stroke-linecap="round"/>
+  </svg><p>7. Double Border</p>
+</div>
+
+<!-- 8: Glow effect -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256"><defs>
+  <filter id="glow8"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="256" height="256" rx="58" fill="#111"/>
+  <path d="M 128 52 L 192 84 L 192 144 Q 192 196 128 216 Q 64 196 64 144 L 64 84 Z" fill="none" stroke="#0a84ff" stroke-width="6" filter="url(#glow8)"/>
+  <line x1="102" y1="110" x2="154" y2="162" stroke="#ff3b30" stroke-width="8" stroke-linecap="round" filter="url(#glow8)"/>
+  <line x1="154" y1="110" x2="102" y2="162" stroke="#ff3b30" stroke-width="8" stroke-linecap="round" filter="url(#glow8)"/>
+  </svg><p>8. Neon Glow</p>
+</div>
+
+<!-- 9: Shield + skull X eyes -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#1e1e1e"/>
+  <path d="M 128 52 L 192 84 L 192 144 Q 192 196 128 216 Q 64 196 64 144 L 64 84 Z" fill="none" stroke="#0a84ff" stroke-width="6"/>
+  <line x1="88" y1="108" x2="112" y2="132" stroke="#ff3b30" stroke-width="7" stroke-linecap="round"/>
+  <line x1="112" y1="108" x2="88" y2="132" stroke="#ff3b30" stroke-width="7" stroke-linecap="round"/>
+  <line x1="144" y1="108" x2="168" y2="132" stroke="#ff3b30" stroke-width="7" stroke-linecap="round"/>
+  <line x1="168" y1="108" x2="144" y2="132" stroke="#ff3b30" stroke-width="7" stroke-linecap="round"/>
+  <line x1="112" y1="168" x2="128" y2="158" stroke="#666" stroke-width="4" stroke-linecap="round"/>
+  <line x1="128" y1="158" x2="144" y2="168" stroke="#666" stroke-width="4" stroke-linecap="round"/>
+  </svg><p>9. Skull Face</p>
+</div>
+
+<!-- 10: Shield + K -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#1e1e1e"/>
+  <path d="M 128 52 L 192 84 L 192 144 Q 192 196 128 216 Q 64 196 64 144 L 64 84 Z" fill="none" stroke="#0a84ff" stroke-width="6"/>
+  <text x="98" y="162" font-family="-apple-system" font-size="90" fill="#ff3b30" font-weight="900">K</text>
+  </svg><p>10. Shield + K</p>
+</div>
+
+<!-- 11: Small shield on dark gradient -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256"><defs>
+  <linearGradient id="bg11" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2a2a2a"/><stop offset="100%" stop-color="#0d0d0d"/></linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="58" fill="url(#bg11)"/>
+  <path d="M 128 60 L 184 88 L 184 140 Q 184 186 128 204 Q 72 186 72 140 L 72 88 Z" fill="#0a84ff" opacity="0.1" stroke="#0a84ff" stroke-width="5"/>
+  <line x1="104" y1="114" x2="152" y2="162" stroke="#ff3b30" stroke-width="8" stroke-linecap="round"/>
+  <line x1="152" y1="114" x2="104" y2="162" stroke="#ff3b30" stroke-width="8" stroke-linecap="round"/>
+  </svg><p>11. Dark Gradient BG</p>
+</div>
+
+<!-- 12: Broken shield -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#1e1e1e"/>
+  <path d="M 128 52 L 192 84 L 192 144 Q 192 196 128 216" fill="none" stroke="#0a84ff" stroke-width="7" stroke-linecap="round"/>
+  <path d="M 128 216 Q 64 196 64 144 L 64 84 L 128 52" fill="none" stroke="#0a84ff" stroke-width="7" stroke-linecap="round" stroke-dasharray="16 10"/>
+  <line x1="102" y1="110" x2="154" y2="162" stroke="#ff3b30" stroke-width="9" stroke-linecap="round"/>
+  <line x1="154" y1="110" x2="102" y2="162" stroke="#ff3b30" stroke-width="9" stroke-linecap="round"/>
+  </svg><p>12. Broken Shield</p>
+</div>
+
+<!-- 13: Shield + power icon -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#1e1e1e"/>
+  <path d="M 128 52 L 192 84 L 192 144 Q 192 196 128 216 Q 64 196 64 144 L 64 84 Z" fill="none" stroke="#0a84ff" stroke-width="6"/>
+  <path d="M 106 112 A 34 34 0 1 0 150 112" fill="none" stroke="#ff3b30" stroke-width="7" stroke-linecap="round"/>
+  <line x1="128" y1="100" x2="128" y2="138" stroke="#ff3b30" stroke-width="7" stroke-linecap="round"/>
+  </svg><p>13. Shield + Power</p>
+</div>
+
+<!-- 14: 3D-ish shield -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256"><defs>
+  <linearGradient id="sf14" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a6aff"/><stop offset="100%" stop-color="#0040cc"/></linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="58" fill="#1e1e1e"/>
+  <path d="M 128 52 L 192 84 L 192 144 Q 192 196 128 216 Q 64 196 64 144 L 64 84 Z" fill="url(#sf14)" opacity="0.2"/>
+  <path d="M 128 52 L 192 84 L 192 144 Q 192 196 128 216 Q 64 196 64 144 L 64 84 Z" fill="none" stroke="url(#sf14)" stroke-width="6"/>
+  <line x1="102" y1="110" x2="154" y2="162" stroke="#ff4444" stroke-width="10" stroke-linecap="round"/>
+  <line x1="154" y1="110" x2="102" y2="162" stroke="#ff4444" stroke-width="10" stroke-linecap="round"/>
+  </svg><p>14. 3D Shield</p>
+</div>
+
+<!-- 15: Rounded shield -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#1e1e1e"/>
+  <path d="M 128 52 Q 196 72 196 140 Q 196 198 128 218 Q 60 198 60 140 Q 60 72 128 52 Z" fill="none" stroke="#0a84ff" stroke-width="7"/>
+  <line x1="102" y1="110" x2="154" y2="162" stroke="#ff3b30" stroke-width="9" stroke-linecap="round"/>
+  <line x1="154" y1="110" x2="102" y2="162" stroke="#ff3b30" stroke-width="9" stroke-linecap="round"/>
+  </svg><p>15. Rounded Shield</p>
+</div>
+
+<!-- 16: Orange X -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#1e1e1e"/>
+  <path d="M 128 52 L 192 84 L 192 144 Q 192 196 128 216 Q 64 196 64 144 L 64 84 Z" fill="none" stroke="#0a84ff" stroke-width="6"/>
+  <line x1="102" y1="110" x2="154" y2="162" stroke="#ff9500" stroke-width="9" stroke-linecap="round"/>
+  <line x1="154" y1="110" x2="102" y2="162" stroke="#ff9500" stroke-width="9" stroke-linecap="round"/>
+  </svg><p>16. Orange X</p>
+</div>
+
+<!-- 17: Shield + ban circle -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#1e1e1e"/>
+  <path d="M 128 52 L 192 84 L 192 144 Q 192 196 128 216 Q 64 196 64 144 L 64 84 Z" fill="none" stroke="#0a84ff" stroke-width="6"/>
+  <circle cx="128" cy="136" r="36" fill="none" stroke="#ff3b30" stroke-width="6"/>
+  <line x1="102" y1="160" x2="154" y2="112" stroke="#ff3b30" stroke-width="6" stroke-linecap="round"/>
+  </svg><p>17. Ban Circle</p>
+</div>
+
+<!-- 18: Minimal flat -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#0a84ff"/>
+  <path d="M 128 52 L 192 84 L 192 144 Q 192 196 128 216 Q 64 196 64 144 L 64 84 Z" fill="none" stroke="white" stroke-width="7" opacity="0.9"/>
+  <line x1="102" y1="110" x2="154" y2="162" stroke="white" stroke-width="9" stroke-linecap="round"/>
+  <line x1="154" y1="110" x2="102" y2="162" stroke="white" stroke-width="9" stroke-linecap="round"/>
+  </svg><p>18. Blue Flat</p>
+</div>
+
+<!-- 19: Red flat -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256"><defs>
+  <linearGradient id="rbg19" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff4444"/><stop offset="100%" stop-color="#cc1111"/></linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="58" fill="url(#rbg19)"/>
+  <path d="M 128 52 L 192 84 L 192 144 Q 192 196 128 216 Q 64 196 64 144 L 64 84 Z" fill="none" stroke="white" stroke-width="7" opacity="0.9"/>
+  <line x1="102" y1="110" x2="154" y2="162" stroke="white" stroke-width="9" stroke-linecap="round"/>
+  <line x1="154" y1="110" x2="102" y2="162" stroke="white" stroke-width="9" stroke-linecap="round"/>
+  </svg><p>19. Red Flat</p>
+</div>
+
+<!-- 20: Purple variant -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#1e1e1e"/>
+  <path d="M 128 52 L 192 84 L 192 144 Q 192 196 128 216 Q 64 196 64 144 L 64 84 Z" fill="none" stroke="#bf5af2" stroke-width="7"/>
+  <line x1="102" y1="110" x2="154" y2="162" stroke="#ff375f" stroke-width="9" stroke-linecap="round"/>
+  <line x1="154" y1="110" x2="102" y2="162" stroke="#ff375f" stroke-width="9" stroke-linecap="round"/>
+  </svg><p>20. Purple Shield</p>
+</div>
+
+</body>
+</html>

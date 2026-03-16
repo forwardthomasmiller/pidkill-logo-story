@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ProcessKiller - Unique Concepts</title>
+<style>
+  body {
+    background: #111;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+    padding: 40px;
+    font-family: -apple-system, sans-serif;
+    color: #fff;
+  }
+  .icon-card { text-align: center; }
+  .icon-card p { margin-top: 8px; font-size: 11px; color: #666; max-width: 160px; }
+  svg { filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5)); }
+</style>
+</head>
+<body>
+
+<!-- 1: Venus Flytrap -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#111"/>
+  <path d="M 128 200 L 128 148" stroke="#2d6a2d" stroke-width="6" stroke-linecap="round"/>
+  <path d="M 78 120 Q 78 68 128 58 Q 178 68 178 120" fill="none" stroke="#28c840" stroke-width="5"/>
+  <path d="M 78 120 Q 128 148 178 120" fill="none" stroke="#28c840" stroke-width="5"/>
+  <!-- Teeth -->
+  <line x1="88" y1="118" x2="96" y2="128" stroke="#28c840" stroke-width="3" stroke-linecap="round"/>
+  <line x1="108" y1="122" x2="112" y2="134" stroke="#28c840" stroke-width="3" stroke-linecap="round"/>
+  <line x1="128" y1="124" x2="128" y2="136" stroke="#28c840" stroke-width="3" stroke-linecap="round"/>
+  <line x1="148" y1="122" x2="144" y2="134" stroke="#28c840" stroke-width="3" stroke-linecap="round"/>
+  <line x1="168" y1="118" x2="160" y2="128" stroke="#28c840" stroke-width="3" stroke-linecap="round"/>
+  <!-- Red dot = trapped process -->
+  <circle cx="128" cy="100" r="8" fill="#ff3b30"/>
+  <circle cx="128" cy="100" r="4" fill="#ff6b6b"/>
+  </svg><p>1. Venus Flytrap</p>
+</div>
+
+<!-- 2: Reaper Scythe -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#131313"/>
+  <line x1="148" y1="68" x2="118" y2="208" stroke="#888" stroke-width="6" stroke-linecap="round"/>
+  <path d="M 148 68 Q 108 48 78 78 Q 58 108 88 128" fill="none" stroke="#e0e0e0" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="88" cy="128" r="3" fill="#ff3b30"/>
+  </svg><p>2. Scythe</p>
+</div>
+
+<!-- 3: Black Hole -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256"><defs>
+  <radialGradient id="bh3" cx="50%" cy="50%"><stop offset="0%" stop-color="#000"/><stop offset="40%" stop-color="#111"/><stop offset="70%" stop-color="#0a84ff" stop-opacity="0.4"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+  </defs>
+  <rect width="256" height="256" rx="58" fill="#0a0a0a"/>
+  <circle cx="128" cy="128" r="80" fill="url(#bh3)"/>
+  <ellipse cx="128" cy="128" rx="72" ry="20" fill="none" stroke="#0a84ff" stroke-width="3" opacity="0.6"/>
+  <ellipse cx="128" cy="128" rx="52" ry="14" fill="none" stroke="#ff5f57" stroke-width="2" opacity="0.8"/>
+  <circle cx="128" cy="128" r="18" fill="#000"/>
+  <circle cx="128" cy="128" r="18" fill="none" stroke="#ff3b30" stroke-width="2" opacity="0.6"/>
+  <!-- Particles being sucked in -->
+  <circle cx="78" cy="98" r="3" fill="#0a84ff" opacity="0.7"/>
+  <circle cx="178" cy="108" r="2.5" fill="#0a84ff" opacity="0.5"/>
+  <circle cx="168" cy="158" r="2" fill="#ff5f57" opacity="0.6"/>
+  <circle cx="88" cy="152" r="2.5" fill="#ff5f57" opacity="0.4"/>
+  </svg><p>3. Black Hole</p>
+</div>
+
+<!-- 4: Spider -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#111"/>
+  <!-- Web lines -->
+  <line x1="128" y1="48" x2="128" y2="208" stroke="#333" stroke-width="1"/>
+  <line x1="48" y1="128" x2="208" y2="128" stroke="#333" stroke-width="1"/>
+  <line x1="60" y1="60" x2="196" y2="196" stroke="#333" stroke-width="1"/>
+  <line x1="196" y1="60" x2="60" y2="196" stroke="#333" stroke-width="1"/>
+  <!-- Web rings -->
+  <circle cx="128" cy="128" r="30" fill="none" stroke="#333" stroke-width="1"/>
+  <circle cx="128" cy="128" r="58" fill="none" stroke="#333" stroke-width="1"/>
+  <!-- Spider body -->
+  <ellipse cx="128" cy="124" rx="12" ry="10" fill="#e0e0e0"/>
+  <ellipse cx="128" cy="140" rx="16" ry="14" fill="#e0e0e0"/>
+  <!-- Eyes -->
+  <circle cx="123" cy="120" r="3" fill="#ff3b30"/>
+  <circle cx="133" cy="120" r="3" fill="#ff3b30"/>
+  <!-- Legs -->
+  <path d="M 114 130 Q 88 118 72 98" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 112 136 Q 82 132 62 128" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 114 144 Q 86 152 66 162" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 118 150 Q 96 168 78 186" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 142 130 Q 168 118 184 98" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 144 136 Q 174 132 194 128" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 142 144 Q 170 152 190 162" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 138 150 Q 160 168 178 186" fill="none" stroke="#ccc" stroke-width="2.5" stroke-linecap="round"/>
+  </svg><p>4. Spider Web</p>
+</div>
+
+<!-- 5: Scorpion Tail -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#131313"/>
+  <path d="M 88 188 Q 68 158 78 128 Q 88 98 118 88 Q 148 78 168 88 Q 188 100 178 78 Q 170 58 158 48" fill="none" stroke="#e0e0e0" stroke-width="8" stroke-linecap="round"/>
+  <!-- Stinger -->
+  <path d="M 158 48 L 150 62 L 165 58" fill="#ff3b30" stroke="#ff3b30" stroke-width="2"/>
+  <!-- Drop -->
+  <circle cx="154" cy="68" r="3" fill="#ff3b30" opacity="0.7"/>
+  </svg><p>5. Scorpion Tail</p>
+</div>
+
+<!-- 6: Owl Eyes -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#0d0d0d"/>
+  <!-- Eyes -->
+  <circle cx="98" cy="118" r="32" fill="none" stroke="#f0a030" stroke-width="5"/>
+  <circle cx="158" cy="118" r="32" fill="none" stroke="#f0a030" stroke-width="5"/>
+  <circle cx="98" cy="118" r="14" fill="#f0a030"/>
+  <circle cx="158" cy="118" r="14" fill="#f0a030"/>
+  <circle cx="98" cy="118" r="8" fill="#000"/>
+  <circle cx="158" cy="118" r="8" fill="#000"/>
+  <!-- Glint -->
+  <circle cx="102" cy="114" r="3" fill="#fff" opacity="0.6"/>
+  <circle cx="162" cy="114" r="3" fill="#fff" opacity="0.6"/>
+  <!-- Beak -->
+  <path d="M 122 138 L 128 152 L 134 138" fill="#f0a030" opacity="0.6"/>
+  <!-- Ears -->
+  <path d="M 72 88 L 78 68 L 88 86" fill="none" stroke="#f0a030" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 184 88 L 178 68 L 168 86" fill="none" stroke="#f0a030" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg><p>6. Night Owl</p>
+</div>
+
+<!-- 7: Guillotine -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#151515"/>
+  <!-- Frame -->
+  <line x1="88" y1="52" x2="88" y2="204" stroke="#666" stroke-width="6" stroke-linecap="round"/>
+  <line x1="168" y1="52" x2="168" y2="204" stroke="#666" stroke-width="6" stroke-linecap="round"/>
+  <line x1="82" y1="56" x2="174" y2="56" stroke="#666" stroke-width="6" stroke-linecap="round"/>
+  <!-- Blade -->
+  <path d="M 88 118 L 168 118 L 128 148 Z" fill="#ccc"/>
+  <line x1="88" y1="118" x2="168" y2="118" stroke="#e0e0e0" stroke-width="3"/>
+  <!-- Red line -->
+  <line x1="88" y1="204" x2="168" y2="204" stroke="#ff3b30" stroke-width="4" stroke-linecap="round"/>
+  </svg><p>7. Guillotine</p>
+</div>
+
+<!-- 8: Mousetrap -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#151515"/>
+  <!-- Base -->
+  <rect x="60" y="148" width="136" height="16" rx="4" fill="#8B7355"/>
+  <!-- Spring arc -->
+  <path d="M 88 148 Q 88 68 168 68" fill="none" stroke="#ccc" stroke-width="5" stroke-linecap="round"/>
+  <!-- Bar -->
+  <line x1="88" y1="148" x2="168" y2="68" stroke="#aaa" stroke-width="5" stroke-linecap="round"/>
+  <!-- Cheese (process) -->
+  <circle cx="148" cy="138" r="12" fill="#f0a030"/>
+  <circle cx="144" cy="134" r="2" fill="#c88020"/>
+  <circle cx="152" cy="140" r="1.5" fill="#c88020"/>
+  </svg><p>8. Mousetrap</p>
+</div>
+
+<!-- 9: Closing Eye -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#0d0d0d"/>
+  <!-- Upper lid -->
+  <path d="M 56 128 Q 128 72 200 128" fill="none" stroke="#ff3b30" stroke-width="6" stroke-linecap="round"/>
+  <!-- Lower lid closing -->
+  <path d="M 56 128 Q 128 152 200 128" fill="none" stroke="#ff3b30" stroke-width="6" stroke-linecap="round"/>
+  <!-- Iris -->
+  <circle cx="128" cy="124" r="18" fill="#ff3b30" opacity="0.3"/>
+  <circle cx="128" cy="124" r="10" fill="#ff3b30"/>
+  <circle cx="128" cy="124" r="5" fill="#000"/>
+  <!-- Lashes -->
+  <line x1="72" y1="104" x2="68" y2="88" stroke="#ff3b30" stroke-width="3" stroke-linecap="round"/>
+  <line x1="128" y1="92" x2="128" y2="76" stroke="#ff3b30" stroke-width="3" stroke-linecap="round"/>
+  <line x1="184" y1="104" x2="188" y2="88" stroke="#ff3b30" stroke-width="3" stroke-linecap="round"/>
+  </svg><p>9. Closing Eye</p>
+</div>
+
+<!-- 10: Pulled Plug -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#131313"/>
+  <!-- Socket -->
+  <rect x="48" y="98" width="80" height="60" rx="10" fill="#333"/>
+  <circle cx="78" cy="118" r="6" fill="#1a1a1a"/>
+  <circle cx="108" cy="118" r="6" fill="#1a1a1a"/>
+  <rect x="72" y="134" width="20" height="6" rx="3" fill="#1a1a1a"/>
+  <!-- Plug pulling away -->
+  <rect x="158" y="104" width="50" height="48" rx="8" fill="#555"/>
+  <rect x="148" y="118" width="14" height="8" rx="2" fill="#888"/>
+  <rect x="148" y="132" width="14" height="8" rx="2" fill="#888"/>
+  <!-- Sparks -->
+  <circle cx="140" cy="120" r="3" fill="#ffcc00"/>
+  <circle cx="144" cy="134" r="2" fill="#ffcc00"/>
+  <line x1="136" y1="114" x2="132" y2="108" stroke="#ffcc00" stroke-width="2" stroke-linecap="round"/>
+  <line x1="138" y1="142" x2="134" y2="148" stroke="#ffcc00" stroke-width="2" stroke-linecap="round"/>
+  </svg><p>10. Pulled Plug</p>
+</div>
+
+<!-- 11: Ace of Spades -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#111"/>
+  <!-- Card outline -->
+  <rect x="72" y="48" width="112" height="160" rx="10" fill="#1a1a1a" stroke="#333" stroke-width="2"/>
+  <!-- Spade -->
+  <path d="M 128 78 Q 96 108 96 128 Q 96 148 112 148 Q 122 148 128 138 Q 134 148 144 148 Q 160 148 160 128 Q 160 108 128 78 Z" fill="#e0e0e0"/>
+  <line x1="128" y1="142" x2="128" y2="172" stroke="#e0e0e0" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 118 172 Q 128 162 138 172" fill="none" stroke="#e0e0e0" stroke-width="3"/>
+  <!-- K corners -->
+  <text x="80" y="72" font-family="Georgia,serif" font-size="18" fill="#ff3b30" font-weight="bold">K</text>
+  <text x="156" y="198" font-family="Georgia,serif" font-size="18" fill="#ff3b30" font-weight="bold" transform="rotate(180 162 192)">K</text>
+  </svg><p>11. Kill Card</p>
+</div>
+
+<!-- 12: Syringe -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#131313"/>
+  <g transform="rotate(-45 128 128)">
+  <!-- Barrel -->
+  <rect x="98" y="88" width="60" height="100" rx="6" fill="#444" stroke="#666" stroke-width="2"/>
+  <!-- Plunger -->
+  <rect x="118" y="58" width="20" height="38" rx="4" fill="#666"/>
+  <line x1="108" y1="58" x2="148" y2="58" stroke="#888" stroke-width="4" stroke-linecap="round"/>
+  <!-- Needle -->
+  <line x1="128" y1="188" x2="128" y2="218" stroke="#ccc" stroke-width="3"/>
+  <circle cx="128" cy="220" r="2" fill="#ff3b30"/>
+  <!-- Liquid -->
+  <rect x="106" y="138" width="44" height="42" rx="4" fill="#ff3b30" opacity="0.5"/>
+  <!-- Markers -->
+  <line x1="98" y1="118" x2="108" y2="118" stroke="#888" stroke-width="2"/>
+  <line x1="98" y1="138" x2="108" y2="138" stroke="#888" stroke-width="2"/>
+  <line x1="98" y1="158" x2="108" y2="158" stroke="#888" stroke-width="2"/>
+  </g>
+  </svg><p>12. Lethal Injection</p>
+</div>
+
+<!-- 13: Wolf Fang -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#0d0d0d"/>
+  <!-- Wolf silhouette - minimal snout -->
+  <path d="M 68 88 L 88 52 L 98 82 L 128 68 L 158 82 L 168 52 L 188 88 Q 198 128 178 148 L 158 158 Q 148 168 148 178 L 128 188 L 108 178 Q 108 168 98 158 L 78 148 Q 58 128 68 88 Z" fill="none" stroke="#888" stroke-width="4"/>
+  <!-- Eyes -->
+  <circle cx="104" cy="108" r="6" fill="#ff3b30"/>
+  <circle cx="152" cy="108" r="6" fill="#ff3b30"/>
+  <!-- Nose -->
+  <ellipse cx="128" cy="138" rx="8" ry="6" fill="#666"/>
+  </svg><p>13. Wolf</p>
+</div>
+
+<!-- 14: Hourglass Broken -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#131313"/>
+  <line x1="88" y1="58" x2="168" y2="58" stroke="#888" stroke-width="5" stroke-linecap="round"/>
+  <line x1="88" y1="198" x2="168" y2="198" stroke="#888" stroke-width="5" stroke-linecap="round"/>
+  <path d="M 92 58 Q 92 108 128 128 Q 164 108 164 58" fill="none" stroke="#888" stroke-width="4"/>
+  <path d="M 92 198 Q 92 148 128 128 Q 164 148 164 198" fill="none" stroke="#888" stroke-width="4"/>
+  <!-- Sand -->
+  <path d="M 108 178 L 128 158 L 148 178 Z" fill="#f0a030" opacity="0.6"/>
+  <!-- Crack -->
+  <line x1="118" y1="88" x2="108" y2="118" stroke="#ff3b30" stroke-width="3" stroke-linecap="round"/>
+  <line x1="108" y1="118" x2="118" y2="138" stroke="#ff3b30" stroke-width="3" stroke-linecap="round"/>
+  <line x1="108" y1="108" x2="98" y2="112" stroke="#ff3b30" stroke-width="2" stroke-linecap="round"/>
+  <!-- Leaking -->
+  <circle cx="102" cy="128" r="2.5" fill="#f0a030" opacity="0.5"/>
+  <circle cx="96" cy="142" r="2" fill="#f0a030" opacity="0.4"/>
+  </svg><p>14. Broken Hourglass</p>
+</div>
+
+<!-- 15: Mantis -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#0d0d0d"/>
+  <!-- Head -->
+  <path d="M 118 108 Q 128 92 138 108 Q 138 120 128 124 Q 118 120 118 108 Z" fill="#28c840"/>
+  <!-- Eyes -->
+  <circle cx="122" cy="106" r="5" fill="#1a1a1a"/>
+  <circle cx="134" cy="106" r="5" fill="#1a1a1a"/>
+  <circle cx="122" cy="106" r="2.5" fill="#ff3b30"/>
+  <circle cx="134" cy="106" r="2.5" fill="#ff3b30"/>
+  <!-- Antennae -->
+  <path d="M 122 100 Q 108 72 88 62" fill="none" stroke="#28c840" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 134 100 Q 148 72 168 62" fill="none" stroke="#28c840" stroke-width="2" stroke-linecap="round"/>
+  <!-- Arms - praying/killing -->
+  <path d="M 118 118 L 82 88 L 68 108" fill="none" stroke="#28c840" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 138 118 L 174 88 L 188 108" fill="none" stroke="#28c840" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Spikes on arms -->
+  <line x1="92" y1="96" x2="86" y2="88" stroke="#28c840" stroke-width="2" stroke-linecap="round"/>
+  <line x1="100" y1="100" x2="96" y2="90" stroke="#28c840" stroke-width="2" stroke-linecap="round"/>
+  <line x1="164" y1="96" x2="170" y2="88" stroke="#28c840" stroke-width="2" stroke-linecap="round"/>
+  <line x1="156" y1="100" x2="160" y2="90" stroke="#28c840" stroke-width="2" stroke-linecap="round"/>
+  <!-- Body -->
+  <line x1="128" y1="124" x2="128" y2="196" stroke="#28c840" stroke-width="5" stroke-linecap="round"/>
+  <!-- Back legs -->
+  <path d="M 128 158 Q 88 168 72 198" fill="none" stroke="#28c840" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 128 158 Q 168 168 184 198" fill="none" stroke="#28c840" stroke-width="3" stroke-linecap="round"/>
+  </svg><p>15. Praying Mantis</p>
+</div>
+
+<!-- 16: Raven -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#0a0a0a"/>
+  <!-- Body -->
+  <path d="M 108 148 Q 78 128 78 108 Q 78 78 108 68 Q 128 62 148 72 Q 162 80 158 98 L 168 92 L 158 104 Q 158 128 138 148 Q 128 158 128 188 L 118 188 Q 118 158 108 148 Z" fill="#333"/>
+  <!-- Wing -->
+  <path d="M 108 108 Q 68 128 48 168" fill="none" stroke="#444" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 108 118 Q 78 138 58 178" fill="none" stroke="#3a3a3a" stroke-width="3" stroke-linecap="round"/>
+  <!-- Eye -->
+  <circle cx="132" cy="88" r="6" fill="#ff3b30"/>
+  <circle cx="133" cy="87" r="2.5" fill="#000"/>
+  <!-- Beak -->
+  <path d="M 158 98 L 182 102 L 158 108" fill="#f0a030"/>
+  <!-- Feet -->
+  <path d="M 118 188 L 108 202 M 118 188 L 118 204 M 118 188 L 128 202" fill="none" stroke="#666" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 128 188 L 128 204 M 128 188 L 138 202" fill="none" stroke="#666" stroke-width="2.5" stroke-linecap="round"/>
+  </svg><p>16. Raven</p>
+</div>
+
+<!-- 17: Ninja Star -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#111"/>
+  <g transform="translate(128,128)">
+  <polygon points="0,-72 18,-18 72,0 18,18 0,72 -18,18 -72,0 -18,-18" fill="#888" stroke="#aaa" stroke-width="2"/>
+  <circle r="14" fill="#333" stroke="#666" stroke-width="2"/>
+  <circle r="4" fill="#ff3b30"/>
+  </g>
+  </svg><p>17. Shuriken</p>
+</div>
+
+<!-- 18: Snake Bite -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#0d0d0d"/>
+  <!-- Snake body -->
+  <path d="M 68 188 Q 48 148 88 128 Q 128 108 128 88 Q 128 68 108 58 Q 128 48 148 58 Q 168 72 158 98 Q 148 118 128 128" fill="none" stroke="#28c840" stroke-width="7" stroke-linecap="round"/>
+  <!-- Head -->
+  <ellipse cx="128" cy="138" rx="18" ry="14" fill="#28c840"/>
+  <!-- Eye -->
+  <circle cx="136" cy="134" r="4" fill="#ff3b30"/>
+  <circle cx="137" cy="133" r="1.5" fill="#000"/>
+  <!-- Fangs -->
+  <line x1="122" y1="150" x2="118" y2="168" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <line x1="134" y1="150" x2="138" y2="168" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <!-- Venom drops -->
+  <circle cx="116" cy="172" r="2.5" fill="#ff3b30" opacity="0.7"/>
+  <circle cx="140" cy="172" r="2.5" fill="#ff3b30" opacity="0.7"/>
+  </svg><p>18. Snake Bite</p>
+</div>
+
+<!-- 19: Wasp -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#0d0d0d"/>
+  <!-- Wings -->
+  <ellipse cx="104" cy="98" rx="28" ry="16" fill="#fff" opacity="0.15" transform="rotate(-20 104 98)"/>
+  <ellipse cx="152" cy="98" rx="28" ry="16" fill="#fff" opacity="0.15" transform="rotate(20 152 98)"/>
+  <!-- Head -->
+  <circle cx="128" cy="92" r="16" fill="#f0a030"/>
+  <circle cx="122" cy="88" r="4" fill="#000"/>
+  <circle cx="134" cy="88" r="4" fill="#000"/>
+  <!-- Antennae -->
+  <path d="M 120 80 Q 108 62 98 58" fill="none" stroke="#f0a030" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 136 80 Q 148 62 158 58" fill="none" stroke="#f0a030" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Body -->
+  <ellipse cx="128" cy="120" rx="14" ry="12" fill="#f0a030"/>
+  <!-- Abdomen with stripes -->
+  <ellipse cx="128" cy="156" rx="18" ry="28" fill="#f0a030"/>
+  <rect x="110" y="142" width="36" height="4" fill="#111"/>
+  <rect x="110" y="152" width="36" height="4" fill="#111"/>
+  <rect x="110" y="162" width="36" height="4" fill="#111"/>
+  <!-- Stinger -->
+  <path d="M 128 184 L 124 198 L 128 194 L 132 198 Z" fill="#ff3b30"/>
+  </svg><p>19. Wasp</p>
+</div>
+
+<!-- 20: Trap Door -->
+<div class="icon-card">
+  <svg width="160" height="160" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="58" fill="#131313"/>
+  <!-- Floor -->
+  <rect x="48" y="128" width="160" height="8" fill="#444"/>
+  <!-- Trap door opening -->
+  <path d="M 88 128 L 88 136 L 128 168 L 168 136 L 168 128" fill="#222"/>
+  <line x1="88" y1="128" x2="128" y2="160" stroke="#666" stroke-width="3"/>
+  <line x1="168" y1="128" x2="128" y2="160" stroke="#666" stroke-width="3"/>
+  <!-- Falling process -->
+  <circle cx="128" cy="108" r="14" fill="#0a84ff" opacity="0.8"/>
+  <text x="121" y="114" font-family="Menlo" font-size="14" fill="white">P</text>
+  <!-- Arrow down -->
+  <line x1="128" y1="178" x2="128" y2="206" stroke="#ff3b30" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 118 196 L 128 210 L 138 196" fill="none" stroke="#ff3b30" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Void below -->
+  <circle cx="128" cy="200" r="28" fill="#000" opacity="0.3"/>
+  </svg><p>20. Trap Door</p>
+</div>
+
+</body>
+</html>

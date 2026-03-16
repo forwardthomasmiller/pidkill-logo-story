@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ProcessKiller Icon - Final Concepts</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a1a; color: #fff; font-family: -apple-system, BlinkMacSystemFont, sans-serif; padding: 40px; }
+  h1 { text-align: center; margin-bottom: 8px; font-size: 28px; }
+  .subtitle { text-align: center; color: #888; margin-bottom: 40px; font-size: 14px; }
+  .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto; }
+  .card { text-align: center; }
+  .icon-wrap {
+    width: 180px; height: 180px; margin: 0 auto 10px;
+    border-radius: 40px; display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .icon-wrap svg { width: 120px; height: 120px; }
+  .label { font-size: 12px; color: #aaa; }
+  .section-title {
+    grid-column: 1 / -1; font-size: 16px; color: #D4A042;
+    border-bottom: 1px solid #333; padding-bottom: 6px; margin-top: 16px;
+  }
+  .ref { grid-column: 1 / -1; color: #666; font-size: 12px; margin-top: -8px; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<h1>ProcessKiller Icon Concepts</h1>
+<p class="subtitle">Security & System Utility Style - 20 Concepts</p>
+
+<div class="grid">
+
+<!-- ==================== A: Power/Kill Switch ==================== -->
+<div class="section-title">A. Power Kill Switch - clean, universal "power off" metaphor</div>
+<div class="ref">Ref: CleanMyMac, iStat Menus, App Cleaner style</div>
+
+<!-- A1: Power symbol with slash -->
+<div class="card">
+  <div class="icon-wrap" style="background: linear-gradient(135deg, #2a2a2e, #1a1a1e);">
+    <svg viewBox="0 0 200 200">
+      <circle cx="100" cy="108" r="52" fill="none" stroke="#E85D4A" stroke-width="8" stroke-linecap="round" stroke-dasharray="130 40"/>
+      <line x1="100" y1="52" x2="100" y2="100" stroke="#E85D4A" stroke-width="8" stroke-linecap="round"/>
+      <!-- Slash through -->
+      <line x1="60" y1="150" x2="140" y2="60" stroke="#E85D4A" stroke-width="4" opacity="0.5"/>
+    </svg>
+  </div>
+  <div class="label">A1. Power Off Slash</div>
+</div>
+
+<!-- A2: Power symbol bold red -->
+<div class="card">
+  <div class="icon-wrap" style="background: linear-gradient(180deg, #2d1a1a, #1a1a1e);">
+    <svg viewBox="0 0 200 200">
+      <circle cx="100" cy="108" r="50" fill="none" stroke="#FF4444" stroke-width="10" stroke-linecap="round" stroke-dasharray="125 42"/>
+      <line x1="100" y1="54" x2="100" y2="105" stroke="#FF4444" stroke-width="10" stroke-linecap="round"/>
+      <circle cx="100" cy="108" r="65" fill="none" stroke="#FF4444" stroke-width="2" opacity="0.15"/>
+    </svg>
+  </div>
+  <div class="label">A2. Power Bold Red</div>
+</div>
+
+<!-- A3: Power in rounded square -->
+<div class="card">
+  <div class="icon-wrap" style="background: linear-gradient(135deg, #1e1e22, #141418);">
+    <svg viewBox="0 0 200 200">
+      <rect x="30" y="30" width="140" height="140" rx="28" fill="none" stroke="#555" stroke-width="2"/>
+      <circle cx="100" cy="108" r="40" fill="none" stroke="#FF6B6B" stroke-width="7" stroke-linecap="round" stroke-dasharray="100 35"/>
+      <line x1="100" y1="64" x2="100" y2="104" stroke="#FF6B6B" stroke-width="7" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="label">A3. Boxed Power</div>
+</div>
+
+<!-- A4: Power with glow -->
+<div class="card">
+  <div class="icon-wrap" style="background: radial-gradient(circle at center, #2a1515, #1a1a1e);">
+    <svg viewBox="0 0 200 200">
+      <defs>
+        <filter id="glow1"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <circle cx="100" cy="108" r="48" fill="none" stroke="#FF5555" stroke-width="8" stroke-linecap="round" stroke-dasharray="120 40" filter="url(#glow1)"/>
+      <line x1="100" y1="56" x2="100" y2="104" stroke="#FF5555" stroke-width="8" stroke-linecap="round" filter="url(#glow1)"/>
+    </svg>
+  </div>
+  <div class="label">A4. Neon Power Glow</div>
+</div>
+
+<!-- ==================== B: Crosshair/Target ==================== -->
+<div class="section-title">B. Crosshair Target - "hunting processes" metaphor</div>
+<div class="ref">Ref: Little Snitch, Micro Snitch, Wireshark style</div>
+
+<!-- B1: Clean crosshair -->
+<div class="card">
+  <div class="icon-wrap" style="background: linear-gradient(135deg, #1e2028, #14161a);">
+    <svg viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="45" fill="none" stroke="#E85D4A" stroke-width="5"/>
+      <circle cx="100" cy="100" r="28" fill="none" stroke="#E85D4A" stroke-width="3"/>
+      <circle cx="100" cy="100" r="6" fill="#E85D4A"/>
+      <line x1="100" y1="38" x2="100" y2="60" stroke="#E85D4A" stroke-width="4" stroke-linecap="round"/>
+      <line x1="100" y1="140" x2="100" y2="162" stroke="#E85D4A" stroke-width="4" stroke-linecap="round"/>
+      <line x1="38" y1="100" x2="60" y2="100" stroke="#E85D4A" stroke-width="4" stroke-linecap="round"/>
+      <line x1="140" y1="100" x2="162" y2="100" stroke="#E85D4A" stroke-width="4" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="label">B1. Clean Crosshair</div>
+</div>
+
+<!-- B2: Crosshair with X -->
+<div class="card">
+  <div class="icon-wrap" style="background: linear-gradient(135deg, #1e2028, #14161a);">
+    <svg viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="50" fill="none" stroke="#D4A042" stroke-width="4"/>
+      <line x1="100" y1="34" x2="100" y2="60" stroke="#D4A042" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="100" y1="140" x2="100" y2="166" stroke="#D4A042" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="34" y1="100" x2="60" y2="100" stroke="#D4A042" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="140" y1="100" x2="166" y2="100" stroke="#D4A042" stroke-width="3.5" stroke-linecap="round"/>
+      <!-- X in center -->
+      <line x1="86" y1="86" x2="114" y2="114" stroke="#E85D4A" stroke-width="5" stroke-linecap="round"/>
+      <line x1="114" y1="86" x2="86" y2="114" stroke="#E85D4A" stroke-width="5" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="label">B2. Crosshair + X Kill</div>
+</div>
+
+<!-- B3: Scope lens -->
+<div class="card">
+  <div class="icon-wrap" style="background: linear-gradient(135deg, #1a1e28, #101218);">
+    <svg viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="55" fill="none" stroke="#5AC8FA" stroke-width="4" opacity="0.4"/>
+      <circle cx="100" cy="100" r="40" fill="none" stroke="#5AC8FA" stroke-width="5"/>
+      <circle cx="100" cy="100" r="4" fill="#FF4444"/>
+      <line x1="100" y1="44" x2="100" y2="66" stroke="#5AC8FA" stroke-width="3" stroke-linecap="round"/>
+      <line x1="100" y1="134" x2="100" y2="156" stroke="#5AC8FA" stroke-width="3" stroke-linecap="round"/>
+      <line x1="44" y1="100" x2="66" y2="100" stroke="#5AC8FA" stroke-width="3" stroke-linecap="round"/>
+      <line x1="134" y1="100" x2="156" y2="100" stroke="#5AC8FA" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="label">B3. Blue Scope + Red Dot</div>
+</div>
+
+<!-- B4: Minimal target -->
+<div class="card">
+  <div class="icon-wrap" style="background: linear-gradient(135deg, #222228, #18181e);">
+    <svg viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="52" fill="none" stroke="#FF6B6B" stroke-width="3"/>
+      <circle cx="100" cy="100" r="32" fill="none" stroke="#FF6B6B" stroke-width="3"/>
+      <circle cx="100" cy="100" r="12" fill="#FF6B6B" opacity="0.8"/>
+    </svg>
+  </div>
+  <div class="label">B4. Minimal Target</div>
+</div>
+
+<!-- ==================== C: Skull/Terminator ==================== -->
+<div class="section-title">C. Terminal/Code Kill - developer tool aesthetic</div>
+<div class="ref">Ref: iTerm, Terminal, Warp, Hyper style</div>
+
+<!-- C1: Terminal cursor kill -->
+<div class="card">
+  <div class="icon-wrap" style="background: linear-gradient(135deg, #0d1117, #0a0e14);">
+    <svg viewBox="0 0 200 200">
+      <text x="34" y="92" fill="#3FB950" font-family="Monaco, monospace" font-size="28" font-weight="bold">$ kill</text>
+      <text x="34" y="124" fill="#FF6B6B" font-family="Monaco, monospace" font-size="28" font-weight="bold">-9 *</text>
+      <!-- Cursor blink -->
+      <rect x="132" y="108" width="14" height="22" fill="#3FB950" opacity="0.7"/>
+    </svg>
+  </div>
+  <div class="label">C1. Terminal Kill -9</div>
+</div>
+
+<!-- C2: Chevron prompt + skull -->
+<div class="card">
+  <div class="icon-wrap" style="background: linear-gradient(135deg, #0d1117, #0a0e14);">
+    <svg viewBox="0 0 200 200">
+      <!-- > prompt -->
+      <text x="30" y="110" fill="#8B949E" font-family="Monaco, monospace" font-size="48">&gt;_</text>
+      <!-- Kill X -->
+      <line x1="120" y1="74" x2="158" y2="112" stroke="#FF4444" stroke-width="8" stroke-linecap="round"/>
+      <line x1="158" y1="74" x2="120" y2="112" stroke="#FF4444" stroke-width="8" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="label">C2. Prompt + X</div>
+</div>
+
+<!-- C3: PID with strike -->
+<div class="card">
+  <div class="icon-wrap" style="background: linear-gradient(135deg, #141820, #0e1016);">
+    <svg viewBox="0 0 200 200">
+      <text x="100" y="105" text-anchor="middle" fill="#8B949E" font-family="SF Mono, Monaco, monospace" font-size="36" font-weight="bold">PID</text>
+      <!-- Strikethrough -->
+      <line x1="48" y1="95" x2="152" y2="95" stroke="#FF4444" stroke-width="5" stroke-linecap="round"/>
+      <text x="100" y="140" text-anchor="middle" fill="#FF4444" font-family="Monaco, monospace" font-size="18" opacity="0.6">KILLED</text>
+    </svg>
+  </div>
+  <div class="label">C3. PID Struck Out</div>
+</div>
+
+<!-- C4: Signal wave kill -->
+<div class="card">
+  <div class="icon-wrap" style="background: linear-gradient(135deg, #141820, #0e1016);">
+    <svg viewBox="0 0 200 200">
+      <!-- Process heartbeat going to flatline -->
+      <polyline points="25,100 50,100 60,70 70,130 80,60 90,140 100,100 110,100 200,100"
+                fill="none" stroke="#3FB950" stroke-width="4" stroke-linejoin="round"/>
+      <!-- X kill point -->
+      <line x1="95" y1="85" x2="115" y2="115" stroke="#FF4444" stroke-width="5" stroke-linecap="round"/>
+      <line x1="115" y1="85" x2="95" y2="115" stroke="#FF4444" stroke-width="5" stroke-linecap="round"/>
+      <!-- Flatline after X -->
+      <line x1="120" y1="100" x2="180" y2="100" stroke="#FF4444" stroke-width="3" opacity="0.4"/>
+    </svg>
+  </div>
+  <div class="label">C4. Heartbeat Flatline</div>
+</div>
+
+<!-- ==================== D: Shield/Security ==================== -->
+<div class="section-title">D. Shield Security - protective tool vibe</div>
+<div class="ref">Ref: 1Password, Lulu Firewall, Malwarebytes style</div>
+
+<!-- D1: Shield with power icon -->
+<div class="card">
+  <div class="icon-wrap" style="background: linear-gradient(180deg, #1e2030, #14161e);">
+    <svg viewBox="0 0 200 200">
+      <path d="M100 28 L160 56 L160 110 Q160 155 100 178 Q40 155 40 110 L40 56 Z"
+            fill="none" stroke="#5AC8FA" stroke-width="5" stroke-linejoin="round"/>
+      <!-- Power icon inside -->
+      <circle cx="100" cy="108" r="30" fill="none" stroke="#FF6B6B" stroke-width="5" stroke-linecap="round" stroke-dasharray="75 25"/>
+      <line x1="100" y1="74" x2="100" y2="105" stroke="#FF6B6B" stroke-width="5" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="label">D1. Shield + Power</div>
+</div>
+
+<!-- D2: Shield with X -->
+<div class="card">
+  <div class="icon-wrap" style="background: linear-gradient(180deg, #1a2030, #10121a);">
+    <svg viewBox="0 0 200 200">
+      <path d="M100 28 L162 58 L162 112 Q162 158 100 180 Q38 158 38 112 L38 58 Z"
+            fill="#5AC8FA" opacity="0.1" stroke="#5AC8FA" stroke-width="4" stroke-linejoin="round"/>
+      <!-- X -->
+      <line x1="76" y1="82" x2="124" y2="130" stroke="#FF5555" stroke-width="8" stroke-linecap="round"/>
+      <line x1="124" y1="82" x2="76" y2="130" stroke="#FF5555" stroke-width="8" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="label">D2. Shield + X</div>
+</div>
+
+<!-- D3: Filled shield gradient -->
+<div class="card">
+  <div class="icon-wrap" style="background: linear-gradient(180deg, #1e1e24, #141418);">
+    <svg viewBox="0 0 200 200">
+      <defs>
+        <linearGradient id="shieldGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#5AC8FA"/>
+          <stop offset="100%" stop-color="#0A84FF"/>
+        </linearGradient>
+      </defs>
+      <path d="M100 30 L158 56 L158 108 Q158 152 100 174 Q42 152 42 108 L42 56 Z"
+            fill="url(#shieldGrad)" opacity="0.85"/>
+      <circle cx="100" cy="105" r="26" fill="none" stroke="white" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="65 22"/>
+      <line x1="100" y1="75" x2="100" y2="102" stroke="white" stroke-width="4.5" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="label">D3. Blue Shield Power</div>
+</div>
+
+<!-- D4: Dark shield -->
+<div class="card">
+  <div class="icon-wrap" style="background: linear-gradient(180deg, #222228, #18181e);">
+    <svg viewBox="0 0 200 200">
+      <path d="M100 30 L158 56 L158 108 Q158 152 100 174 Q42 152 42 108 L42 56 Z"
+            fill="#2a2a30" stroke="#555" stroke-width="3" stroke-linejoin="round"/>
+      <!-- Crosshair inside -->
+      <circle cx="100" cy="105" r="30" fill="none" stroke="#E85D4A" stroke-width="3"/>
+      <circle cx="100" cy="105" r="5" fill="#E85D4A"/>
+      <line x1="100" y1="68" x2="100" y2="80" stroke="#E85D4A" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="100" y1="130" x2="100" y2="142" stroke="#E85D4A" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="63" y1="105" x2="75" y2="105" stroke="#E85D4A" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="125" y1="105" x2="137" y2="105" stroke="#E85D4A" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="label">D4. Dark Shield Crosshair</div>
+</div>
+
+<!-- ==================== E: Abstract/Unique ==================== -->
+<div class="section-title">E. Abstract Symbol - memorable, unique identity</div>
+<div class="ref">Ref: Bear, Things, Raycast, Arc style</div>
+
+<!-- E1: Broken circle (interrupted process) -->
+<div class="card">
+  <div class="icon-wrap" style="background: linear-gradient(135deg, #1e1e24, #141418);">
+    <svg viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="55" fill="none" stroke="#D4A042" stroke-width="7" stroke-linecap="round" stroke-dasharray="60 20 90 200"/>
+      <!-- Gap with lightning bolt -->
+      <path d="M68 58 L58 78 L72 78 L62 98" fill="none" stroke="#FF6B6B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div class="label">E1. Broken Ring + Bolt</div>
+</div>
+
+<!-- E2: Skull minimal -->
+<div class="card">
+  <div class="icon-wrap" style="background: linear-gradient(180deg, #1e1e24, #141418);">
+    <svg viewBox="0 0 200 200">
+      <!-- Skull shape -->
+      <path d="M60 110 Q60 50 100 46 Q140 50 140 110 L140 120 Q140 130 130 130 L70 130 Q60 130 60 120 Z"
+            fill="none" stroke="#e0e0e0" stroke-width="5" stroke-linejoin="round"/>
+      <!-- Eyes -->
+      <circle cx="82" cy="92" r="12" fill="#E85D4A"/>
+      <circle cx="118" cy="92" r="12" fill="#E85D4A"/>
+      <!-- Teeth -->
+      <line x1="85" y1="130" x2="85" y2="145" stroke="#e0e0e0" stroke-width="4" stroke-linecap="round"/>
+      <line x1="100" y1="130" x2="100" y2="148" stroke="#e0e0e0" stroke-width="4" stroke-linecap="round"/>
+      <line x1="115" y1="130" x2="115" y2="145" stroke="#e0e0e0" stroke-width="4" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="label">E2. Skull (Danger)</div>
+</div>
+
+<!-- E3: Scissors cutting process -->
+<div class="card">
+  <div class="icon-wrap" style="background: linear-gradient(135deg, #1e1e24, #141418);">
+    <svg viewBox="0 0 200 200">
+      <!-- Scissor blades -->
+      <line x1="60" y1="60" x2="130" y2="120" stroke="#D4A042" stroke-width="6" stroke-linecap="round"/>
+      <line x1="60" y1="140" x2="130" y2="80" stroke="#D4A042" stroke-width="6" stroke-linecap="round"/>
+      <!-- Pivot -->
+      <circle cx="95" cy="100" r="6" fill="#D4A042"/>
+      <!-- Finger holes -->
+      <circle cx="54" cy="54" r="14" fill="none" stroke="#D4A042" stroke-width="4"/>
+      <circle cx="54" cy="146" r="14" fill="none" stroke="#D4A042" stroke-width="4"/>
+      <!-- Cut line (process bar) -->
+      <line x1="120" y1="100" x2="170" y2="100" stroke="#666" stroke-width="3" stroke-dasharray="6 4"/>
+    </svg>
+  </div>
+  <div class="label">E3. Scissors Cut</div>
+</div>
+
+<!-- E4: Lightning bolt kill -->
+<div class="card">
+  <div class="icon-wrap" style="background: linear-gradient(180deg, #1e1a10, #141210);">
+    <svg viewBox="0 0 200 200">
+      <path d="M110 30 L70 105 L100 105 L85 175 L145 90 L112 90 L130 30 Z"
+            fill="#D4A042" opacity="0.9"/>
+      <path d="M110 30 L70 105 L100 105 L85 175 L145 90 L112 90 L130 30 Z"
+            fill="none" stroke="#F5D78E" stroke-width="2" opacity="0.5"/>
+    </svg>
+  </div>
+  <div class="label">E4. Lightning Kill</div>
+</div>
+
+</div>
+
+<div style="text-align:center; margin-top:50px; color:#666; font-size:13px;">
+  5 directions: Power Switch / Crosshair / Terminal / Shield / Abstract &nbsp;|&nbsp; ProcessKiller App Icon
+</div>
+
+</body>
+</html>
